@@ -1,6 +1,5 @@
-import { View, StyleSheet} from 'react-native';
-import Text from '../../Text'
-
+import { View, StyleSheet } from 'react-native';
+import Text from '../Text';
 
 const styles = StyleSheet.create({
   item: {
@@ -9,7 +8,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
-})
+});
 
 const CountsItem = ({ value, label }) => {
   if (value > 1000) {
@@ -17,11 +16,10 @@ const CountsItem = ({ value, label }) => {
   }
   return (
     <View style={styles.item}>
-      <Text fontWeight='bold'>{value}</Text>
-      <Text color='textSecondary'>{label}</Text>
+      <Text fontWeight="bold">{value}</Text>
+      <Text color="textSecondary">{label}</Text>
     </View>
-  )
-
-}
+  );
+};
 
 export default CountsItem;
