@@ -19,7 +19,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    paddingLeft: 16,
+    marginLeft: 16,
+    flexGrow: 1,
+    flexShrink: 1,
   },
   language: {
     padding: 4,
