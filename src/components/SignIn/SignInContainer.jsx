@@ -1,19 +1,11 @@
-/* eslint-disable no-unused-vars */
 import { View, Pressable, StyleSheet } from 'react-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
-import Text from './Text';
-import FormikTextInput from './FormikTextInput';
+import Text from '../Text';
+import FormikTextInput from '../FormikTextInput';
 
-import useSignIn from '../hooks/useSignIn';
-
-import theme from '../theme';
-
-const initialValues = {
-  username: '',
-  password: '',
-};
+import theme from '../../theme';
 
 const styles = StyleSheet.create({
   container: {
@@ -26,17 +18,6 @@ const styles = StyleSheet.create({
     padding: 16,
     textAlign: 'center',
   },
-});
-
-const validationSchema = yup.object().shape({
-  username: yup
-    .string()
-    .min(3, 'Username should consist of more than 3 characters')
-    .required('Username is required'),
-  password: yup
-    .string()
-    .min(8, 'Password should contain 8 or more symbols')
-    .required('Password is required'),
 });
 
 const SignInForm = ({ onSubmit }) => {
@@ -66,17 +47,23 @@ const SignInForm = ({ onSubmit }) => {
   );
 };
 
-const SignIn = () => {
-  const [signIn] = useSignIn();
+const initialValues = {
+  username: '',
+  password: '',
+};
 
-  const onSubmit = async ({ username, password }) => {
-    try {
-      const accessToken = await signIn({ username, password });
-      console.log('accessToken: ', accessToken);
-    } catch (e) {
-      console.log('error: ', e);
-    }
-  };
+const validationSchema = yup.object().shape({
+  username: yup
+    .string()
+    .min(3, 'Username should consist of more than 3 characters')
+    .required('Username is required'),
+  password: yup
+    .string()
+    .min(8, 'Password should contain 8 or more symbols')
+    .required('Password is required'),
+});
+
+const SignInContainer = ({ onSubmit }) => {
   return (
     <Formik
       initialValues={initialValues}
@@ -88,4 +75,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignInContainer;
