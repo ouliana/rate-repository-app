@@ -46,7 +46,10 @@ const styles = StyleSheet.create({
 
 const RepositoryItem = ({ item }) => {
   return (
-    <View style={styles.container}>
+    <View
+      style={styles.container}
+      testID="repositoryItem"
+    >
       <View style={styles.infoContainer}>
         <Image
           style={styles.avatar}
