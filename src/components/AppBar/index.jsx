@@ -43,7 +43,6 @@ const AppBar = () => {
   };
 
   const { data, error } = useQuery(ME);
-  console.log({ data });
 
   useEffect(() => {
     if (data?.me) {
