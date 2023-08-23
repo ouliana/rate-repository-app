@@ -7,6 +7,8 @@ const SingleRepository = () => {
 
   const { repository } = useRepository(repositoryId);
 
+  if (!repository) return null;
+
   return <SingleRepositoryContainer repository={repository} />;
 };
 

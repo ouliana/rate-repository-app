@@ -27,7 +27,6 @@ const RepositoryListContainer = ({ repositories }) => {
       renderItem={({ item }) => (
         <Pressable
           onPress={() => {
-            console.log(`/${item.id}`);
             navigate(`/${item.id}`);
           }}
         >
