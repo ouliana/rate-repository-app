@@ -1,6 +1,6 @@
 import RepositoryItem from '../RepositoryItem';
 
-const SingleRepositoryContainer = ({ repository }) => {
+const RepositoryInfo = ({ repository }) => {
   return (
     <RepositoryItem
       item={repository}
@@ -9,4 +9,4 @@ const SingleRepositoryContainer = ({ repository }) => {
   );
 };
 
-export default SingleRepositoryContainer;
+export default RepositoryInfo;

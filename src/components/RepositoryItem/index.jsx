@@ -16,15 +16,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
+    gap: 16,
   },
   details: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginLeft: 16,
     flexGrow: 1,
     flexShrink: 1,
+    gap: 8,
   },
   language: {
     padding: 4,
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
 });
 
 const RepositoryItem = ({ item, isSingle }) => {
+  if (!item) return null;
   return (
     <View
       style={styles.container}

@@ -36,7 +36,7 @@ const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
     color === 'primary' && styles.colorPrimary,
     color === 'textBackground' && styles.colorTextBackground,
     color === 'error' && styles.colorError,
-    fontSize === 'snbheading' && styles.fontSizeSubheading,
+    fontSize === 'subheading' && styles.fontSizeSubheading,
     fontWeight === 'bold' && styles.fontWeightBold,
     style,
   ];
