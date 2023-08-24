@@ -10,9 +10,34 @@ export const CREATE_USER = gql`
 `;
 
 export const AUTHENTICATE = gql`
-  mutation authenticate($username: String!, $password: String!) {
+  mutation Authenticate($username: String!, $password: String!) {
     authenticate(credentials: { username: $username, password: $password }) {
       accessToken
+    }
+  }
+`;
+
+export const CREATE_REVIEW = gql`
+  mutation CreateReview(
+    $ownerName: String!
+    $repositoryName: String!
+    $rating: Int!
+    $text: String
+  ) {
+    createReview(
+      review: {
+        ownerName: $ownerName
+        repositoryName: $repositoryName
+        rating: $rating
+        text: $text
+      }
+    ) {
+      repository {
+        ownerName
+        fullName
+      }
+      rating
+      text
     }
   }
 `;

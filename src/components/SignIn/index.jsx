@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import { Formik } from 'formik';
 import SignInContainer from './SignInContainer';
 
 import useSignIn from '../../hooks/useSignIn';
