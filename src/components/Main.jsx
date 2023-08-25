@@ -3,6 +3,7 @@ import { Route, Routes, Navigate } from 'react-router-native';
 import RepositoryList from './RepositoryList';
 import SingleRepository from './SingleRepository';
 import SignIn from '../components/SignIn';
+import SignUp from '../components/SignUp';
 import NewReview from '../components/NewReview';
 
 import AppBar from './AppBar';
@@ -27,6 +28,10 @@ const Main = () => {
         <Route
           path="/:repositoryId"
           element={<SingleRepository />}
+        />
+        <Route
+          path="/signup"
+          element={<SignUp />}
         />
         <Route
           path="/signin"
