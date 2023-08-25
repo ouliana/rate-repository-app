@@ -15,13 +15,9 @@ const useAddReview = () => {
     },
     refetchQueries: [{ query: GET_REPOSITORY }],
     errorPolicy: 'all',
-    // onError: error => {
-    //   console.log('onError');
-    //   const messages = error.graphQLErrors[0].message;
-    //   console.log('messages: ', error);
-    //   console.log('message: ', error.message);
-    //   setError(messages);
-    // },
+    onError: error => {
+      throw new Error(error);
+    },
   });
 
   useEffect(() => {
