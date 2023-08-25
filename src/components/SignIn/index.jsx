@@ -2,7 +2,7 @@
 import SignInContainer from './SignInContainer';
 import { useNavigate } from 'react-router-native';
 
-import useSignIn from '../../hooks/useSignIn';
+import { useSignIn } from '../../hooks/useAuth';
 
 const SignIn = () => {
   const [signIn] = useSignIn();
@@ -10,8 +10,7 @@ const SignIn = () => {
 
   const onSubmit = async ({ username, password }) => {
     try {
-      const accessToken = await signIn({ username, password });
-      console.log('accessToken: ', accessToken);
+      await signIn({ username, password });
       navigate('/');
     } catch (e) {
       console.log('error: ', e);

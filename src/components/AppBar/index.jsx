@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react';
 import { View, StyleSheet, ScrollView, Pressable } from 'react-native';
 import Text from '../Text';
 import Constants from 'expo-constants';
-import theme from '../../theme';
 import AppBarTab from './AppBarTab';
 import { useQuery } from '@apollo/client';
 import { ME } from '../../graphql/queries';
-import useSignOut from '../../hooks/useSignOut';
+import { useSignOut } from '../../hooks/useAuth';
+
+import theme from '../../theme';
 
 const styles = StyleSheet.create({
   container: {
