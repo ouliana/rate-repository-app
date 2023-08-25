@@ -67,22 +67,25 @@ const AppBar = () => {
           text="Repositories"
           to="/"
         />
-        <AppBarTab
-          text="Create a review"
-          to="/addreview"
-        />
+
         {currentUser ? (
-          <Pressable
-            onPress={handleSignOut}
-            style={styles.tab}
-          >
-            <Text
-              color="textBackground"
-              fontWeight="bold"
+          <>
+            <AppBarTab
+              text="Create a review"
+              to="/addreview"
+            />
+            <Pressable
+              onPress={handleSignOut}
+              style={styles.tab}
             >
-              Sign out
-            </Text>
-          </Pressable>
+              <Text
+                color="textBackground"
+                fontWeight="bold"
+              >
+                Sign out
+              </Text>
+            </Pressable>
+          </>
         ) : (
           <AppBarTab
             text="Sign in"

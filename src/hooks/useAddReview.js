@@ -1,23 +1,27 @@
 import { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
-import { CREATE_REVIEW } from '../graphql/mutations';
+import { CREATE_REVIEW, GET_REPOSITORY } from '../graphql/mutations';
 import useAuthStorage from './useAuthStorage';
 
 const useAddReview = () => {
-  console.log('useAddReview');
-
   const authStorage = useAuthStorage();
   const [accessToken, setAccessToken] = useState('');
 
-  const [mutate, result] = useMutation(CREATE_REVIEW, {
+  const [createReview, result] = useMutation(CREATE_REVIEW, {
     context: {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     },
-    onError: error => {
-      throw new Error(error.message);
-    },
+    refetchQueries: [{ query: GET_REPOSITORY }],
+    errorPolicy: 'all',
+    // onError: error => {
+    //   console.log('onError');
+    //   const messages = error.graphQLErrors[0].message;
+    //   console.log('messages: ', error);
+    //   console.log('message: ', error.message);
+    //   setError(messages);
+    // },
   });
 
   useEffect(() => {
@@ -28,20 +32,15 @@ const useAddReview = () => {
   }, [accessToken]);
 
   const addReview = async ({ ownerName, repositoryName, rating, text }) => {
-    try {
-      await mutate({
-        variables: {
-          ownerName,
-          repositoryName,
-          rating,
-          text,
-        },
-      });
-    } catch (e) {
-      throw new Error('Error in addReview: ', e.message);
-    }
+    await createReview({
+      variables: {
+        ownerName,
+        repositoryName,
+        rating,
+        text,
+      },
+    });
   };
-
   return [addReview, result];
 };
 

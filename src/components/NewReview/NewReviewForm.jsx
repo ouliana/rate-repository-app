@@ -13,13 +13,12 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.primary,
     borderRadius: 4,
     padding: 16,
-    textAlign: 'center',
   },
 });
 
 const NewReviewForm = ({ onSubmit }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <FormikTextInput
         name="ownerName"
         placeholderTextColor="#ccc"
@@ -40,11 +39,14 @@ const NewReviewForm = ({ onSubmit }) => {
         placeholder="Review"
         placeholderTextColor="#ccc"
       />
-      <Pressable onPress={onSubmit}>
+      <Pressable
+        onPress={onSubmit}
+        style={styles.button}
+      >
         <Text
           color="textBackground"
           fontWeight="bold"
-          style={styles.button}
+          style={{ textAlign: 'center' }}
         >
           Create a review
         </Text>

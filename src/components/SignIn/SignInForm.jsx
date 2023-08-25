@@ -32,11 +32,14 @@ const SignInForm = ({ onSubmit }) => {
         placeholderTextColor="#ccc"
         secureTextEntry={true}
       />
-      <Pressable onPress={onSubmit}>
+      <Pressable
+        onPress={onSubmit}
+        style={styles.button}
+      >
         <Text
           color="textBackground"
           fontWeight="bold"
-          style={styles.button}
+          style={{ textAlign: 'center' }}
         >
           Sign in
         </Text>
