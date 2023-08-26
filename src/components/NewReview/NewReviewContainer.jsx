@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 const initialValues = {
   ownerName: '',
   repositoryName: '',
-  rating: 1,
+  rating: '',
   text: '',
 };
 

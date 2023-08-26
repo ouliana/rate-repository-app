@@ -38,6 +38,7 @@ const NewReviewForm = ({ onSubmit }) => {
         name="text"
         placeholder="Review"
         placeholderTextColor="#ccc"
+        multiline={true}
       />
       <Pressable
         onPress={onSubmit}
