@@ -8,6 +8,8 @@ import NewReview from '../components/NewReview';
 
 import AppBar from './AppBar';
 
+import { OrderContextProvider } from '../contexts/OrderContext';
+
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
@@ -17,41 +19,43 @@ const styles = StyleSheet.create({
 
 const Main = () => {
   return (
-    <View style={styles.container}>
-      <AppBar />
-      <Routes>
-        <Route
-          path="/"
-          element={<RepositoryList />}
-          exact
-        />
-        <Route
-          path="/:repositoryId"
-          element={<SingleRepository />}
-        />
-        <Route
-          path="/signup"
-          element={<SignUp />}
-        />
-        <Route
-          path="/signin"
-          element={<SignIn />}
-        />
-        <Route
-          path="/addreview"
-          element={<NewReview />}
-        />
-        <Route
-          path="*"
-          element={
-            <Navigate
-              to="/"
-              replace
-            />
-          }
-        />
-      </Routes>
-    </View>
+    <OrderContextProvider>
+      <View style={styles.container}>
+        <AppBar />
+        <Routes>
+          <Route
+            path="/"
+            element={<RepositoryList />}
+            exact
+          />
+          <Route
+            path="/:repositoryId"
+            element={<SingleRepository />}
+          />
+          <Route
+            path="/signup"
+            element={<SignUp />}
+          />
+          <Route
+            path="/signin"
+            element={<SignIn />}
+          />
+          <Route
+            path="/addreview"
+            element={<NewReview />}
+          />
+          <Route
+            path="*"
+            element={
+              <Navigate
+                to="/"
+                replace
+              />
+            }
+          />
+        </Routes>
+      </View>
+    </OrderContextProvider>
   );
 };
 
