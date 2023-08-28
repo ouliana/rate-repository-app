@@ -3,41 +3,44 @@ import Text from '../Text';
 
 import { format } from 'date-fns';
 
-import theme from '../../theme';
-
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    flexDirection: 'row',
-    gap: 16,
-    padding: 16,
-  },
-  separator: {
-    height: 10,
-  },
-  rating: {
-    flexGrow: 0,
-    width: 50,
-    height: 50,
-    borderWidth: 2,
-    borderRadius: 25,
-    borderColor: theme.colors.primary,
-  },
-  details: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    flexGrow: 1,
-    flexShrink: 1,
-  },
-  text: {
-    marginTop: 8,
-  },
-});
+import { useTheme } from '@rneui/themed';
 
 const ReviewItem = ({ review }) => {
   if (!review) return null;
+
+  const { theme } = useTheme();
+
+  const styles = StyleSheet.create({
+    container: {
+      display: 'flex',
+      flexDirection: 'row',
+      gap: 16,
+      padding: 16,
+    },
+    separator: {
+      height: 10,
+    },
+    rating: {
+      flexGrow: 0,
+      width: 50,
+      height: 50,
+      borderWidth: 2,
+      borderRadius: 25,
+      borderColor: theme.colors.primary,
+    },
+    details: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      alignItems: 'flex-start',
+      flexGrow: 1,
+      flexShrink: 1,
+    },
+    text: {
+      marginTop: 8,
+    },
+  });
+
   return (
     <View style={styles.container}>
       <View style={styles.rating}>

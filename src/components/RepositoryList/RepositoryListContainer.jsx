@@ -34,6 +34,7 @@ const OrderPicker = () => {
     <Picker
       selectedValue={order}
       onValueChange={itemValue => handleOnValueChange(itemValue)}
+      mode="dropdown"
     >
       {orderValues.map(value => (
         <Picker.Item

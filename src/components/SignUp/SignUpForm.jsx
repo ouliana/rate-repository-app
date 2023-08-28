@@ -11,7 +11,8 @@ const styles = StyleSheet.create({
     paddingTop: 24,
   },
   button: {
-    backgroundColor: theme.colors.primary,
+    backgroundColor: 'blue',
+    // backgroundColor: theme.colors.primary,
     borderRadius: 4,
     padding: 16,
     textAlign: 'center',

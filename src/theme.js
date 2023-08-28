@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 
-const theme = {
-  colors: {
+const themeValues = {
+  lightColors: {
     textPrimary: '#24292e',
     textSecondary: '#586069',
     primary: '#0366d6',
@@ -9,6 +9,15 @@ const theme = {
     backgroundText: '#ffffff',
     error: '#e11d48',
   },
+  darkColors: {
+    textPrimary: '#24292e',
+    textSecondary: '#586069',
+    primary: '#0366d6',
+    background: '#24292e',
+    backgroundText: '#ffffff',
+    error: '#e11d48',
+  },
+  mode: 'light' | 'dark',
   fontSizes: {
     body: 16,
     subheading: 18,
@@ -26,4 +35,4 @@ const theme = {
   },
 };
 
-export default theme;
+export default themeValues;

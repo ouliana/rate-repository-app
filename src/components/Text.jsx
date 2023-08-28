@@ -1,43 +1,19 @@
-import { Text as NativeText, StyleSheet } from 'react-native';
+import { Text as NativeText } from 'react-native';
 
-import theme from '../theme';
-
-const styles = StyleSheet.create({
-  text: {
-    color: theme.colors.textPrimary,
-    fontSize: theme.fontSizes.body,
-    fontFamily: theme.fonts.main,
-    fontWeight: theme.fontWeights.normal,
-  },
-  colorTextSecondary: {
-    color: theme.colors.textSecondary,
-  },
-  colorPrimary: {
-    color: theme.colors.primary,
-  },
-  colorTextBackground: {
-    color: theme.colors.backgroundText,
-  },
-  colorError: {
-    color: theme.colors.error,
-  },
-  fontSizeSubheading: {
-    fontSize: theme.fontSizes.subheading,
-  },
-  fontWeightBold: {
-    fontWeight: theme.fontWeights.bold,
-  },
-});
+import { useTheme } from '@rneui/themed';
 
 const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
+  const { theme } = useTheme();
+
   const textStyle = [
-    styles.text,
-    color === 'textSecondary' && styles.colorTextSecondary,
-    color === 'primary' && styles.colorPrimary,
-    color === 'textBackground' && styles.colorTextBackground,
-    color === 'error' && styles.colorError,
-    fontSize === 'subheading' && styles.fontSizeSubheading,
-    fontWeight === 'bold' && styles.fontWeightBold,
+    color === 'textSecondary' && { color: theme.colors.textSecondary },
+    color === 'primary' && { color: theme.colors.primary },
+    color === 'textBackground' && { color: theme.colors.backgroundText },
+    color === 'error' && { color: theme.colors.error },
+    fontSize === 'subheading' && {
+      fontSize: theme.fontSizes.fontSizeSubheading,
+    },
+    fontWeight === 'bold' && { fontWeight: theme.fontWeights.bold },
     style,
   ];
 

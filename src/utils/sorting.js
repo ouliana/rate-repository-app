@@ -1,7 +1,7 @@
 export const orderPrinciples = {
   'Latest repositories': {
     orderBy: 'CREATED_AT',
-    orderDirection: 'ASC',
+    orderDirection: 'DESC',
   },
   'Highest rated repositories': {
     orderBy: 'RATING_AVERAGE',

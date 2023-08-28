@@ -3,14 +3,20 @@ import { useOrderValue } from '../../contexts/OrderContext';
 import useRepositories from '../../hooks/useRepositories';
 import RepositoryListContainer from './RepositoryListContainer';
 
-import Text from '../Text';
+import { Button } from '@rneui/themed';
 
 const RepositoryList = () => {
   const order = useOrderValue();
 
   const { repositories, loading } = useRepositories(order);
 
-  if (loading) return <Text>loading...</Text>;
+  if (loading)
+    return (
+      <Button
+        type="clear"
+        loading
+      />
+    );
 
   return <RepositoryListContainer repositories={repositories} />;
 };
