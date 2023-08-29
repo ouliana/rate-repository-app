@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-native';
 import { orderValues } from '../../utils/sorting';
 
 import RepositoryItem from '../RepositoryItem';
-import uuid from 'react-native-uuid';
 
 const styles = StyleSheet.create({
   separator: {
@@ -30,6 +29,8 @@ const OrderPicker = () => {
       payload: itemValue,
     });
   };
+
+  let key = 0;
   return (
     <Picker
       selectedValue={order}
@@ -37,7 +38,7 @@ const OrderPicker = () => {
     >
       {orderValues.map(value => (
         <Picker.Item
-          key={uuid.v4()}
+          key={key++}
           label={value}
           value={value}
         />
