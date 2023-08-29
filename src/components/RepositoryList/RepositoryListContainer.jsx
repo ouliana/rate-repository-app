@@ -1,14 +1,9 @@
-import { useContext } from 'react';
-import OrderContext from '../../contexts/OrderContext';
-
-import { FlatList, View, StyleSheet, Pressable } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+import { FlatList, View, StyleSheet, Pressable, Platform } from 'react-native';
 import { useNavigate } from 'react-router-native';
 
-import { orderValues } from '../../utils/sorting';
-
 import RepositoryItem from '../RepositoryItem';
-import uuid from 'react-native-uuid';
+import OrderPickerModal from './OrderPickerModal';
+import OrderPicker from './OrderPicker';
 
 const styles = StyleSheet.create({
   separator: {
@@ -21,30 +16,9 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-const OrderPicker = () => {
-  const [order, dispatch] = useContext(OrderContext);
-
-  const handleOnValueChange = itemValue => {
-    dispatch({
-      type: 'SET',
-      payload: itemValue,
-    });
-  };
-  return (
-    <Picker
-      selectedValue={order}
-      onValueChange={itemValue => handleOnValueChange(itemValue)}
-      mode="dropdown"
-    >
-      {orderValues.map(value => (
-        <Picker.Item
-          key={uuid.v4()}
-          label={value}
-          value={value}
-        />
-      ))}
-    </Picker>
-  );
+const SelectOrderComponent = () => {
+  if (Platform.OS === 'ios') return <OrderPickerModal />;
+  return <OrderPicker />;
 };
 
 const RepositoryListContainer = ({ repositories }) => {
@@ -57,7 +31,7 @@ const RepositoryListContainer = ({ repositories }) => {
     <FlatList
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}
-      ListHeaderComponent={() => <OrderPicker />}
+      ListHeaderComponent={() => <SelectOrderComponent />}
       renderItem={({ item }) => (
         <Pressable
           onPress={() => {

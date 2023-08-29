@@ -9,7 +9,6 @@ const RepositoryList = () => {
   const order = useOrderValue();
 
   const { repositories, loading } = useRepositories(order);
-
   if (loading)
     return (
       <Button
