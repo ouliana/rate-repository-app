@@ -37,9 +37,7 @@ const OrderPickerBottomsheet = () => {
         titleStyle={globalStyles.text}
         icon={{
           name: 'chevron-down',
-          type: 'font-awesome',
-          size: 15,
-          // color: 'white',
+          type: 'ionicon',
         }}
         iconRight
         iconContainerStyle={{ marginLeft: 10, marginRight: -10 }}

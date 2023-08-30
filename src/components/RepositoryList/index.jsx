@@ -6,6 +6,8 @@ import RepositoryListContainer from './RepositoryListContainer';
 import { View, StyleSheet } from 'react-native';
 import { Button } from '@rneui/themed';
 
+import Text from '../Text';
+
 const Loading = () => {
   return (
     <View style={styles.container}>
@@ -13,6 +15,7 @@ const Loading = () => {
         type="clear"
         loading
       />
+      <Text>loading...</Text>
     </View>
   );
 };
@@ -29,6 +32,7 @@ const RepositoryList = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },

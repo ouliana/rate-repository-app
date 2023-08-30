@@ -7,7 +7,6 @@ const themeValues = {
     primary: '#0366d6',
     secondary: '#e5e7eb',
     header: '#24292e',
-    // background: '#e1e4e8',
     backgroundText: '#ffffff',
     error: '#e11d48',
   },
@@ -17,15 +16,14 @@ const themeValues = {
     primary: '#0366d6',
     secondary: '#e5e7eb',
     header: '#24292e',
-    // background: '#e1e4e8',
     backgroundText: '#ffffff',
     error: '#e11d48',
   },
   mode: 'light' | 'dark',
   fontSizes: {
-    body: 16,
-    subheading: 18,
-    heading: 24,
+    body: 18,
+    subheading: 24,
+    heading: 28,
   },
   fonts: {
     main: Platform.select({

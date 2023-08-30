@@ -26,7 +26,7 @@ const Filter = () => {
       // onClearText={() => console.log(onClearText())}
       placeholder="Type query here..."
       placeholderTextColor="#888"
-      clearIcon={{ type: 'antdesign', name: 'close' }}
+      clearIcon={{ type: 'ionicon', name: 'close-circle' }}
       // showCancel
       // cancelButtonTitle="Cancel"
       // cancelButtonProps={{}}

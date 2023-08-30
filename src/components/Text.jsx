@@ -6,6 +6,8 @@ const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
   const { theme } = useTheme();
 
   const textStyle = [
+    { fontSize: theme.fontSizes.body },
+    { fontFamily: theme.fonts.main },
     color === 'textSecondary' && { color: theme.colors.textSecondary },
     color === 'primary' && { color: theme.colors.primary },
     color === 'textBackground' && { color: theme.colors.backgroundText },

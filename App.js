@@ -11,15 +11,8 @@ import AuthStorageContext from './src/contexts/AuthStorageContext';
 
 import { ThemeProvider, createTheme } from '@rneui/themed';
 import themeValues from './src/theme';
-import { StyleSheet } from 'react-native';
 
 const theme = createTheme(themeValues);
-
-const styles = StyleSheet.create({
-  main: {
-    fontFamily: theme.fonts.main,
-  },
-});
 
 const storage = authStorage();
 
@@ -32,7 +25,7 @@ const App = () => {
         <NativeRouter>
           <ApolloProvider client={apolloClient}>
             <AuthStorageContext.Provider value={storage}>
-              <Main style={styles.main} />
+              <Main />
             </AuthStorageContext.Provider>
           </ApolloProvider>
         </NativeRouter>
@@ -43,4 +36,3 @@ const App = () => {
 };
 
 export default App;
-

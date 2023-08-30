@@ -37,6 +37,8 @@ const getGlobalStyles = props =>
     },
     text: {
       color: props.colors.textPrimary,
+      fontFamily: props.fonts.main,
+      fontSize: props.fontSizes.body,
     },
   });
 
