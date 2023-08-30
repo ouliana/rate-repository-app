@@ -2,23 +2,25 @@ import { FlatList, View, StyleSheet, Pressable, Platform } from 'react-native';
 import { useNavigate } from 'react-router-native';
 
 import RepositoryItem from '../RepositoryItem';
-import OrderPickerModal from './OrderPickerModal';
+import OrderPickerBottomsheet from './OrderPickerBottomsheet';
 import OrderPicker from './OrderPicker';
-
-const styles = StyleSheet.create({
-  separator: {
-    height: 10,
-  },
-  container: {
-    backgroundColor: '#e1e4e8',
-  },
-});
+<Filter />;
+import Filter from './Filter';
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
 const SelectOrderComponent = () => {
-  if (Platform.OS === 'ios') return <OrderPickerModal />;
+  if (Platform.OS === 'ios') return <OrderPickerBottomsheet />;
   return <OrderPicker />;
+};
+
+const Header = () => {
+  return (
+    <>
+      <Filter />
+      <SelectOrderComponent />
+    </>
+  );
 };
 
 const RepositoryListContainer = ({ repositories }) => {
@@ -31,7 +33,7 @@ const RepositoryListContainer = ({ repositories }) => {
     <FlatList
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}
-      ListHeaderComponent={() => <SelectOrderComponent />}
+      ListHeaderComponent={() => <Header />}
       renderItem={({ item }) => (
         <Pressable
           onPress={() => {
@@ -46,5 +48,14 @@ const RepositoryListContainer = ({ repositories }) => {
     />
   );
 };
+const styles = StyleSheet.create({
+  separator: {
+    height: 10,
+  },
+  container: {
+    backgroundColor: '#e1e4e8',
+  },
+  search: {},
+});
 
 export default RepositoryListContainer;

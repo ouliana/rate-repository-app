@@ -3,47 +3,16 @@ import Text from '../Text';
 
 import { format } from 'date-fns';
 
-import { useTheme } from '@rneui/themed';
+import useGlobalStyles from '../../hooks/useGlobalStyles';
 
 const ReviewItem = ({ review }) => {
+  const globalStyles = useGlobalStyles();
+
   if (!review) return null;
-
-  const { theme } = useTheme();
-
-  const styles = StyleSheet.create({
-    container: {
-      display: 'flex',
-      flexDirection: 'row',
-      gap: 16,
-      padding: 16,
-    },
-    separator: {
-      height: 10,
-    },
-    rating: {
-      flexGrow: 0,
-      width: 50,
-      height: 50,
-      borderWidth: 2,
-      borderRadius: 25,
-      borderColor: theme.colors.primary,
-    },
-    details: {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-      alignItems: 'flex-start',
-      flexGrow: 1,
-      flexShrink: 1,
-    },
-    text: {
-      marginTop: 8,
-    },
-  });
 
   return (
     <View style={styles.container}>
-      <View style={styles.rating}>
+      <View style={globalStyles.rating}>
         <Text
           color="primary"
           fontWeight="bold"
@@ -63,5 +32,29 @@ const ReviewItem = ({ review }) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 16,
+    padding: 16,
+    backgroundColor: '#ffffff',
+  },
+  separator: {
+    height: 10,
+  },
+  details: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    flexGrow: 1,
+    flexShrink: 1,
+  },
+  text: {
+    marginTop: 8,
+  },
+});
 
 export default ReviewItem;

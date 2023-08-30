@@ -4,13 +4,10 @@ import OrderContext from '../../contexts/OrderContext';
 import { Picker } from '@react-native-picker/picker';
 import { orderValues } from '../../utils/sorting';
 
-const OrderPicker = ({ isModal, setIsVisible }) => {
+const OrderPicker = () => {
   const [order, dispatch] = useContext(OrderContext);
 
   const handleOnValueChange = option => {
-    if (isModal) {
-      setIsVisible(false);
-    }
     dispatch({
       type: 'SET',
       payload: option,

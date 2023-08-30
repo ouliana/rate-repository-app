@@ -4,13 +4,6 @@ import FormikTextInput from '../FormikTextInput';
 
 import { Button } from '@rneui/themed';
 
-const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-    paddingTop: 24,
-  },
-});
-
 const SignInForm = ({ onSubmit }) => {
   return (
     <View style={styles.container}>
@@ -30,5 +23,12 @@ const SignInForm = ({ onSubmit }) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 16,
+    paddingTop: 24,
+  },
+});
 
 export default SignInForm;

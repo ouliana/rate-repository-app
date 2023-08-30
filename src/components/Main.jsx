@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Route, Routes, Navigate } from 'react-router-native';
 import RepositoryList from './RepositoryList';
 import SingleRepository from './SingleRepository';
@@ -10,18 +10,14 @@ import AppBar from './AppBar';
 
 import { OrderContextProvider } from '../contexts/OrderContext';
 
-const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    flexShrink: 1,
-    backgroundColor: '#e1e4e8',
-  },
-});
+import useGlobalStyles from '../hooks/useGlobalStyles';
 
 const Main = () => {
+  const globalStyles = useGlobalStyles();
+
   return (
     <OrderContextProvider>
-      <View style={styles.container}>
+      <View style={globalStyles.main}>
         <AppBar />
         <Routes>
           <Route

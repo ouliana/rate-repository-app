@@ -11,7 +11,7 @@ const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
     color === 'textBackground' && { color: theme.colors.backgroundText },
     color === 'error' && { color: theme.colors.error },
     fontSize === 'subheading' && {
-      fontSize: theme.fontSizes.fontSizeSubheading,
+      fontSize: theme.fontSizes.subheading,
     },
     fontWeight === 'bold' && { fontWeight: theme.fontWeights.bold },
     style,

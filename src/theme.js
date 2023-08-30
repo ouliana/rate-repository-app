@@ -5,7 +5,9 @@ const themeValues = {
     textPrimary: '#24292e',
     textSecondary: '#586069',
     primary: '#0366d6',
-    background: '#24292e',
+    secondary: '#e5e7eb',
+    header: '#24292e',
+    // background: '#e1e4e8',
     backgroundText: '#ffffff',
     error: '#e11d48',
   },
@@ -13,7 +15,9 @@ const themeValues = {
     textPrimary: '#24292e',
     textSecondary: '#586069',
     primary: '#0366d6',
-    background: '#24292e',
+    secondary: '#e5e7eb',
+    header: '#24292e',
+    // background: '#e1e4e8',
     backgroundText: '#ffffff',
     error: '#e11d48',
   },
@@ -21,6 +25,7 @@ const themeValues = {
   fontSizes: {
     body: 16,
     subheading: 18,
+    heading: 24,
   },
   fonts: {
     main: Platform.select({
