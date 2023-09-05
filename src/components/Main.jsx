@@ -5,6 +5,7 @@ import SingleRepository from './SingleRepository';
 import SignIn from '../components/SignIn';
 import SignUp from '../components/SignUp';
 import NewReview from '../components/NewReview';
+import ReviewList from '../components/ReviewList';
 
 import AppBar from './AppBar';
 
@@ -42,6 +43,10 @@ const Main = () => {
             <Route
               path="/addreview"
               element={<NewReview />}
+            />
+            <Route
+              path="/reviews"
+              element={<ReviewList />}
             />
             <Route
               path="*"

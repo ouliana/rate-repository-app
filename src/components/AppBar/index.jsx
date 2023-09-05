@@ -3,7 +3,7 @@ import { View, StyleSheet, ScrollView, Pressable } from 'react-native';
 import Text from '../Text';
 import AppBarTab from './AppBarTab';
 import { useQuery } from '@apollo/client';
-import { ME } from '../../graphql/queries';
+import { GET_CURRENT_USER } from '../../graphql/queries';
 import { useSignOut } from '../../hooks/useAuth';
 
 import useGlobalStyles from '../../hooks/useGlobalStyles';
@@ -22,7 +22,7 @@ const AppBar = () => {
     }
   };
 
-  const { data, error } = useQuery(ME);
+  const { data, error } = useQuery(GET_CURRENT_USER);
 
   useEffect(() => {
     if (data?.me) {
@@ -53,6 +53,10 @@ const AppBar = () => {
             <AppBarTab
               text="Create a review"
               to="/addreview"
+            />
+            <AppBarTab
+              text="My reviews"
+              to="/reviews"
             />
             <Pressable
               onPress={handleSignOut}

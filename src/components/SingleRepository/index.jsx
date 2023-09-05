@@ -4,14 +4,8 @@ import useReviews from '../../hooks/useReviews';
 
 import { View, FlatList, StyleSheet } from 'react-native';
 import RepositoryInfo from './RepositoryInfo';
-import ReviewItem from './ReviewItem';
+import ReviewItem from '../ReviewItem';
 
-const styles = StyleSheet.create({
-  separator: {
-    height: 10,
-    backgroundColor: '#e1e4e8',
-  },
-});
 const ItemSeparator = () => <View style={styles.separator} />;
 
 const Header = ({ repository }) => {
@@ -28,17 +22,28 @@ const SingleRepository = () => {
 
   const { repository } = useRepository(repositoryId);
   const { reviews } = useReviews(repositoryId);
-
+  console.log(reviews);
   return (
     <FlatList
       data={reviews}
-      renderItem={({ item }) => <ReviewItem review={item} />}
+      renderItem={({ item }) => (
+        <ReviewItem
+          review={item}
+          user={item.user.username}
+        />
+      )}
       keyExtractor={({ id }) => id}
       ListHeaderComponent={() => <Header repository={repository} />}
       ItemSeparatorComponent={ItemSeparator}
-      // ...
     />
   );
 };
+
+const styles = StyleSheet.create({
+  separator: {
+    height: 10,
+    backgroundColor: '#e1e4e8',
+  },
+});
 
 export default SingleRepository;

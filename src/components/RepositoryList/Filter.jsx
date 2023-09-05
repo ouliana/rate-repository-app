@@ -25,25 +25,28 @@ const Filter = () => {
     debounced();
   };
 
-  const clearText = () => {
-    setValue('');
-    debounced();
-  };
+  const searchContainerStyle =
+    Platform.OS === 'ios'
+      ? {
+          ...globalStyles.container,
+          ...styles.searchContainerIOS,
+        }
+      : {
+          ...globalStyles.container,
+          ...styles.searchContainer,
+        };
 
   return (
     <SearchBar
       platform={Platform.OS}
-      containerStyle={{
-        ...globalStyles.container,
-        ...styles.searchContainer,
-      }}
+      containerStyle={searchContainerStyle}
       inputContainerStyle={globalStyles.background}
       onChangeText={newVal => updateSearch(newVal)}
-      onClear={clearText}
+      onClear={() => updateSearch('')}
       placeholder="Type query here..."
       placeholderTextColor="#888"
       clearIcon={{ type: 'ionicon', name: 'close-circle' }}
-      onCancel={() => clearText()}
+      onCancel={() => updateSearch('')}
       value={value}
     />
   );
@@ -53,6 +56,10 @@ const styles = StyleSheet.create({
   searchContainer: {
     paddingLeft: 16,
     paddingRight: 16,
+  },
+  searchContainerIOS: {
+    paddingLeft: 8,
+    paddingRight: 8,
   },
 });
 
