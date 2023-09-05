@@ -1,31 +1,67 @@
 import { View, StyleSheet } from 'react-native';
+import { Button } from '@rneui/themed';
 import Rating from './Rating';
 import ReviewDetails from './ReviewDetails';
 
-const ReviewItem = ({ review, user }) => {
+import useGlobalStyles from '../../hooks/useGlobalStyles';
+
+const ReviewItem = ({ review, isMyReviewsView = false }) => {
+  const globalStyles = useGlobalStyles();
+
   if (!review) return null;
 
-  const header = user ? user : review.repository.fullName;
-
+  const header = isMyReviewsView
+    ? review.repository.fullName
+    : review.user.username;
   return (
     <View style={styles.container}>
-      <Rating rating={review.rating} />
-      <ReviewDetails
-        header={header}
-        createdAt={review.createdAt}
-        text={review.text}
-      />
+      <View style={styles.content}>
+        <Rating rating={review.rating} />
+        <ReviewDetails
+          header={header}
+          createdAt={review.createdAt}
+          text={review.text}
+        />
+      </View>
+      <View style={styles.buttonsContainer}>
+        <Button
+          buttonStyle={{ ...globalStyles.primaryButton, ...styles.button }}
+          containerStyle={styles.buttonContainer}
+        >
+          View repository
+        </Button>
+        <Button
+          buttonStyle={{ ...globalStyles.dangerButton, ...styles.button }}
+          containerStyle={styles.buttonContainer}
+        >
+          Delete review
+        </Button>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
+    flex: 1,
+    justifyContent: 'space-around',
+    backgroundColor: '#ffffff',
+  },
+  content: {
+    flex: 1,
     flexDirection: 'row',
     gap: 16,
     padding: 16,
-    backgroundColor: '#ffffff',
+  },
+  buttonsContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 16,
+    marginVertical: 16,
+  },
+  buttonContainer: {
+    width: '48%',
   },
 });
 

@@ -22,16 +22,11 @@ const SingleRepository = () => {
 
   const { repository } = useRepository(repositoryId);
   const { reviews } = useReviews(repositoryId);
-  console.log(reviews);
+
   return (
     <FlatList
       data={reviews}
-      renderItem={({ item }) => (
-        <ReviewItem
-          review={item}
-          user={item.user.username}
-        />
-      )}
+      renderItem={({ item }) => <ReviewItem review={item} />}
       keyExtractor={({ id }) => id}
       ListHeaderComponent={() => <Header repository={repository} />}
       ItemSeparatorComponent={ItemSeparator}

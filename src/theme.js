@@ -8,7 +8,7 @@ const themeValues = {
     secondary: '#e5e7eb',
     header: '#24292e',
     backgroundText: '#ffffff',
-    error: '#e11d48',
+    error: '#be123c',
   },
   darkColors: {
     textPrimary: '#24292e',

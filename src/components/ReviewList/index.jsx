@@ -19,12 +19,16 @@ const ReviewList = () => {
   }
 
   const reviews = data ? data.me.reviews.edges.map(e => e.node) : [];
-  const username = data ? data.me.username : '';
 
   return (
     <FlatList
       data={reviews}
-      renderItem={({ item }) => <ReviewItem review={item} />}
+      renderItem={({ item }) => (
+        <ReviewItem
+          review={item}
+          isMyReviewsView
+        />
+      )}
       keyExtractor={({ id }) => id}
       ItemSeparatorComponent={ItemSeparator}
     />

@@ -40,6 +40,12 @@ const getGlobalStyles = props =>
       fontFamily: props.fonts.main,
       fontSize: props.fontSizes.body,
     },
+    primaryButton: {
+      backgroundColor: props.colors.primary,
+    },
+    dangerButton: {
+      backgroundColor: props.colors.error,
+    },
   });
 
 const useGlobalStyles = () => {
