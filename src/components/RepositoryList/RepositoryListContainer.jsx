@@ -4,8 +4,7 @@ import { useNavigate } from 'react-router-native';
 import RepositoryItem from '../RepositoryItem';
 import OrderPickerBottomsheet from './OrderPickerBottomsheet';
 import OrderPicker from './OrderPicker';
-<Filter />;
-import Filter from './Filter';
+// import Filter from './Filter';
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
@@ -17,7 +16,7 @@ const SelectOrderComponent = () => {
 const Header = () => {
   return (
     <>
-      <Filter />
+      {/* <Filter /> */}
       <SelectOrderComponent />
     </>
   );

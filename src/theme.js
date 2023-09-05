@@ -21,7 +21,7 @@ const themeValues = {
   },
   mode: 'light' | 'dark',
   fontSizes: {
-    body: 18,
+    body: 16,
     subheading: 24,
     heading: 28,
   },

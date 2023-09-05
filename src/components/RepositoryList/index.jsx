@@ -1,10 +1,12 @@
 import { useOrderValue } from '../../contexts/OrderContext';
+import { useSearchKeywordValue } from '../../contexts/SearchKeywordContext';
 
 import useRepositories from '../../hooks/useRepositories';
 import RepositoryListContainer from './RepositoryListContainer';
 
 import { View, StyleSheet } from 'react-native';
 import { Button } from '@rneui/themed';
+import Filter from './Filter';
 
 import Text from '../Text';
 
@@ -22,11 +24,21 @@ const Loading = () => {
 
 const RepositoryList = () => {
   const order = useOrderValue();
+  const searchKeyword = useSearchKeywordValue();
 
-  const { repositories, loading } = useRepositories(order);
+  const { repositories, loading } = useRepositories({
+    order,
+    searchKeyword,
+  });
+
   if (loading) return <Loading />;
 
-  return <RepositoryListContainer repositories={repositories} />;
+  return (
+    <>
+      <Filter />
+      <RepositoryListContainer repositories={repositories} />
+    </>
+  );
 };
 
 const styles = StyleSheet.create({

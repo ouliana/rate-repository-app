@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { BottomSheet, Button, ListItem } from '@rneui/themed';
 import { StyleSheet, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { useContext } from 'react';
 import OrderContext from '../../contexts/OrderContext';
 
 import { Picker } from '@react-native-picker/picker';
@@ -48,12 +47,7 @@ const OrderPickerBottomsheet = () => {
           onPress={handleOnPress}
         >
           <ListItem.Content style={{ alignItems: 'flex-end' }}>
-            <Text
-              fontSize="subheading"
-              color="primary"
-            >
-              Done
-            </Text>
+            <Text color="primary">Done</Text>
           </ListItem.Content>
         </ListItem>
         <ListItem containerStyle={globalStyles.background}>

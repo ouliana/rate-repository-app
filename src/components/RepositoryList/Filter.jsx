@@ -1,43 +1,59 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import SearchKeywordContext from '../../contexts/SearchKeywordContext';
+import { useDebouncedCallback } from 'use-debounce';
+
 import { SearchBar } from '@rneui/themed';
-import { View, StyleSheet, Platform } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 import useGlobalStyles from '../../hooks/useGlobalStyles';
 
 const Filter = () => {
   const globalStyles = useGlobalStyles();
 
-  const [value, setValue] = useState('');
+  const [searchKeyword, dispatch] = useContext(SearchKeywordContext);
+  const [value, setValue] = useState(searchKeyword);
 
-  const updateSearch = value => {
-    setValue(value);
+  const debounced = useDebouncedCallback(() => {
+    dispatch({
+      type: 'SET',
+      payload: value,
+    });
+  }, 800);
+
+  const updateSearch = newValue => {
+    setValue(newValue);
+    debounced();
+  };
+
+  const clearText = () => {
+    setValue('');
+    debounced();
   };
 
   return (
     <SearchBar
-      platform="ios"
-      containerStyle={globalStyles.container}
+      platform={Platform.OS}
+      containerStyle={{
+        ...globalStyles.container,
+        ...styles.searchContainer,
+      }}
       inputContainerStyle={globalStyles.background}
-      // inputStyle={{}}
-      // leftIconContainerStyle={{}}
-      // rightIconContainerStyle={{}}
-      // loadingProps={{}}
-      onChangeText={newVal => setValue(newVal)}
-      // onClearText={() => console.log(onClearText())}
+      onChangeText={newVal => updateSearch(newVal)}
+      onClear={clearText}
       placeholder="Type query here..."
       placeholderTextColor="#888"
       clearIcon={{ type: 'ionicon', name: 'close-circle' }}
-      // showCancel
-      // cancelButtonTitle="Cancel"
-      // cancelButtonProps={{}}
-      // onCancel={() => console.log(onCancel())}
+      onCancel={() => clearText()}
       value={value}
     />
   );
 };
 
 const styles = StyleSheet.create({
-  search: {},
+  searchContainer: {
+    paddingLeft: 16,
+    paddingRight: 16,
+  },
 });
 
 export default Filter;

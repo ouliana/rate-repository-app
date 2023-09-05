@@ -10,7 +10,6 @@ import useGlobalStyles from '../../hooks/useGlobalStyles';
 
 const AppBar = () => {
   const globalStyles = useGlobalStyles();
-  console.log(globalStyles.header);
   const [currentUser, setCurrentUser] = useState('');
 
   const signOut = useSignOut();
