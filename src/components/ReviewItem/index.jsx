@@ -25,14 +25,14 @@ const ReviewItem = ({ review, isMyReviewsView = false }) => {
       </View>
       <View style={styles.buttonsContainer}>
         <Button
-          buttonStyle={{ ...globalStyles.primaryButton, ...styles.button }}
-          containerStyle={styles.buttonContainer}
+          buttonStyle={globalStyles.primaryButton}
+          containerStyle={styles.button}
         >
           View repository
         </Button>
         <Button
-          buttonStyle={{ ...globalStyles.dangerButton, ...styles.button }}
-          containerStyle={styles.buttonContainer}
+          buttonStyle={globalStyles.dangerButton}
+          containerStyle={styles.button}
         >
           Delete review
         </Button>
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginVertical: 16,
   },
-  buttonContainer: {
+  button: {
     width: '48%',
   },
 });
