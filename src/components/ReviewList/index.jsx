@@ -11,6 +11,7 @@ const ReviewList = () => {
     variables: {
       includeReviews: true,
     },
+    fetchPolicy: 'cache-and-network',
   });
 
   if (error) {
@@ -25,6 +26,7 @@ const ReviewList = () => {
       data={reviews}
       renderItem={({ item }) => (
         <ReviewItem
+          key={item.repositoryId}
           review={item}
           isMyReviewsView
         />

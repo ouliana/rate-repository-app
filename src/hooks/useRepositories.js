@@ -20,10 +20,6 @@ const useRepositories = ({ order, searchKeyword }) => {
   }
 
   const { data, error, loading } = useQuery(GET_REPOSITORIES, {
-    // variables: {
-    //   orderBy: orderPrinciples[order].orderBy,
-    //   orderDirection: orderPrinciples[order].orderDirection,
-    // },
     variables: query,
     fetchPolicy: 'cache-and-network',
   });

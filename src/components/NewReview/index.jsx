@@ -15,14 +15,8 @@ const styles = StyleSheet.create({
 const NewReview = () => {
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const [addReview, { error }] = useAddReview();
+  const [addReview, { error, data }] = useAddReview();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (error) {
-      setErrorMessage(error.graphQLErrors[0].message);
-    }
-  }, [error]);
 
   const onSubmit = async ({ ownerName, repositoryName, rating, text }) => {
     await addReview({
@@ -31,9 +25,20 @@ const NewReview = () => {
       rating: Number(rating),
       text,
     });
-
-    if (!error) navigate('/');
   };
+
+  useEffect(() => {
+    if (error) {
+      setErrorMessage(error.graphQLErrors[0].message);
+    }
+  }, [error]);
+
+  useEffect(() => {
+    if (data) {
+      navigate('/');
+    }
+  }, [data]);
+
   return (
     <>
       <Notify errorMessage={errorMessage} />
