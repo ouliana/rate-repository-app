@@ -46,6 +46,7 @@ export const GET_CURRENT_USER = gql`
               username
             }
             id
+            repositoryId
           }
         }
       }
@@ -86,6 +87,7 @@ export const GET_REVIEWS = gql`
               username
             }
             id
+            repositoryId
           }
         }
       }

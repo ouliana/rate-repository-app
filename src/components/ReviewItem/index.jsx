@@ -1,14 +1,24 @@
+import { useState, useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Button } from '@rneui/themed';
 import Rating from './Rating';
 import ReviewDetails from './ReviewDetails';
 
+import { useNavigate } from 'react-router-native';
+
 import useGlobalStyles from '../../hooks/useGlobalStyles';
 
 const ReviewItem = ({ review, isMyReviewsView = false }) => {
   const globalStyles = useGlobalStyles();
+  const [repositoryToView, setRepositoryToView] = useState('');
+
+  const navigate = useNavigate();
 
   if (!review) return null;
+
+  useEffect(() => {
+    if (repositoryToView) navigate(`/${repositoryToView}`);
+  }, [repositoryToView]);
 
   const header = isMyReviewsView
     ? review.repository.fullName
@@ -23,20 +33,23 @@ const ReviewItem = ({ review, isMyReviewsView = false }) => {
           text={review.text}
         />
       </View>
-      <View style={styles.buttonsContainer}>
-        <Button
-          buttonStyle={globalStyles.primaryButton}
-          containerStyle={styles.button}
-        >
-          View repository
-        </Button>
-        <Button
-          buttonStyle={globalStyles.dangerButton}
-          containerStyle={styles.button}
-        >
-          Delete review
-        </Button>
-      </View>
+      {isMyReviewsView && (
+        <View style={styles.buttonsContainer}>
+          <Button
+            buttonStyle={globalStyles.primaryButton}
+            containerStyle={styles.button}
+            onPress={() => setRepositoryToView(review.repositoryId)}
+          >
+            View repository
+          </Button>
+          <Button
+            buttonStyle={globalStyles.dangerButton}
+            containerStyle={styles.button}
+          >
+            Delete review
+          </Button>
+        </View>
+      )}
     </View>
   );
 };
