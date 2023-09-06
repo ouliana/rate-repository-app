@@ -28,11 +28,11 @@ const Filter = () => {
   const searchContainerStyle =
     Platform.OS === 'ios'
       ? {
-          ...globalStyles.container,
+          ...globalStyles.top,
           ...styles.searchContainerIOS,
         }
       : {
-          ...globalStyles.container,
+          ...globalStyles.top,
           ...styles.searchContainer,
         };
 
@@ -40,7 +40,7 @@ const Filter = () => {
     <SearchBar
       platform={Platform.OS}
       containerStyle={searchContainerStyle}
-      inputContainerStyle={globalStyles.background}
+      inputContainerStyle={globalStyles.search}
       onChangeText={newVal => updateSearch(newVal)}
       onClear={() => updateSearch('')}
       placeholder="Type query here..."

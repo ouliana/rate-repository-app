@@ -1,12 +1,15 @@
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 
 import FormikTextInput from '../FormikTextInput';
 
 import { Button } from '@rneui/themed';
+import useGlobalStyles from '../../hooks/useGlobalStyles';
 
 const SignInForm = ({ onSubmit }) => {
+  const globalStyles = useGlobalStyles();
+
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.formContainer}>
       <FormikTextInput
         name="username"
         placeholder="Username"
@@ -23,12 +26,5 @@ const SignInForm = ({ onSubmit }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-    paddingTop: 24,
-  },
-});
 
 export default SignInForm;

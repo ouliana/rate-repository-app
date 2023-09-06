@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { View, Alert, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Button } from '@rneui/themed';
 import Rating from './Rating';
 import ReviewDetails from './ReviewDetails';
@@ -42,7 +42,7 @@ const ReviewItem = ({ review, isMyReviewsView = false }) => {
   }, [repositoryID]);
 
   return (
-    <View style={styles.container}>
+    <View style={{ ...styles.container, ...globalStyles.container }}>
       <View style={styles.content}>
         <Rating rating={review.rating} />
         <ReviewDetails
@@ -79,7 +79,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-around',
-    backgroundColor: '#ffffff',
   },
   content: {
     flex: 1,

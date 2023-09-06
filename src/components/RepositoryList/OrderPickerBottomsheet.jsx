@@ -32,7 +32,7 @@ const OrderPickerBottomsheet = () => {
       <Button
         title={order}
         onPress={() => setIsVisible(true)}
-        buttonStyle={globalStyles.container}
+        buttonStyle={globalStyles.top}
         titleStyle={globalStyles.text}
         icon={{
           name: 'chevron-down',
@@ -43,14 +43,14 @@ const OrderPickerBottomsheet = () => {
       />
       <BottomSheet isVisible={isVisible}>
         <ListItem
-          containerStyle={globalStyles.container}
+          containerStyle={globalStyles.top}
           onPress={handleOnPress}
         >
           <ListItem.Content style={{ alignItems: 'flex-end' }}>
             <Text color="primary">Done</Text>
           </ListItem.Content>
         </ListItem>
-        <ListItem containerStyle={globalStyles.background}>
+        <ListItem containerStyle={globalStyles.container}>
           <ListItem.Content>
             <View style={styles.picker}>
               <Picker

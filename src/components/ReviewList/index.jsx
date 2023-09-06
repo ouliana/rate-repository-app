@@ -8,7 +8,7 @@ import { GET_CURRENT_USER } from '../../graphql/queries';
 const ItemSeparator = () => <View style={styles.separator} />;
 
 const ReviewList = () => {
-  const { loading, error, data, refetch } = useQuery(GET_CURRENT_USER, {
+  const { loading, error, data } = useQuery(GET_CURRENT_USER, {
     variables: {
       includeReviews: true,
     },
@@ -29,7 +29,6 @@ const ReviewList = () => {
       data={reviews}
       renderItem={({ item }) => (
         <ReviewItem
-          // key={item.repositoryId}
           review={item}
           isMyReviewsView
         />
@@ -43,7 +42,6 @@ const ReviewList = () => {
 const styles = StyleSheet.create({
   separator: {
     height: 10,
-    backgroundColor: '#e1e4e8',
   },
 });
 

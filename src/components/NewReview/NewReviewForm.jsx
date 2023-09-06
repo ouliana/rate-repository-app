@@ -1,17 +1,14 @@
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import FormikTextInput from '../FormikTextInput';
 import { Button } from '@rneui/themed';
 
+import useGlobalStyles from '../../hooks/useGlobalStyles';
+
 const NewReviewForm = ({ onSubmit }) => {
-  const styles = StyleSheet.create({
-    container: {
-      padding: 16,
-      paddingTop: 24,
-    },
-  });
+  const globalStyles = useGlobalStyles();
 
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.formContainer}>
       <FormikTextInput
         name="ownerName"
         placeholder="Repository owner name"

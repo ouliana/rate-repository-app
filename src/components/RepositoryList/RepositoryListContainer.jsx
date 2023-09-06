@@ -16,7 +16,6 @@ const SelectOrderComponent = () => {
 const Header = () => {
   return (
     <>
-      {/* <Filter /> */}
       <SelectOrderComponent />
     </>
   );
@@ -51,10 +50,6 @@ const styles = StyleSheet.create({
   separator: {
     height: 10,
   },
-  container: {
-    backgroundColor: '#e1e4e8',
-  },
-  search: {},
 });
 
 export default RepositoryListContainer;

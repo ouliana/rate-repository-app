@@ -5,24 +5,30 @@ import AppBarTab from './AppBarTab';
 import { useQuery } from '@apollo/client';
 import { GET_CURRENT_USER } from '../../graphql/queries';
 import { useSignOut } from '../../hooks/useAuth';
+import { useNavigate } from 'react-router-native';
 
 import useGlobalStyles from '../../hooks/useGlobalStyles';
 
 const AppBar = () => {
   const globalStyles = useGlobalStyles();
   const [currentUser, setCurrentUser] = useState('');
+  const navigate = useNavigate();
 
   const signOut = useSignOut();
   const handleSignOut = async () => {
     try {
       await signOut();
       setCurrentUser('');
+      navigate('/');
     } catch (e) {
       console.log('error: ', e);
     }
   };
 
   const { data, error } = useQuery(GET_CURRENT_USER);
+  if (error) {
+    throw new Error(error.message);
+  }
 
   useEffect(() => {
     if (data?.me) {
@@ -31,10 +37,6 @@ const AppBar = () => {
       setCurrentUser('');
     }
   }, [data]);
-
-  if (error) {
-    throw new Error(error.message);
-  }
 
   return (
     <View style={globalStyles.header}>

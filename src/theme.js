@@ -8,6 +8,7 @@ const themeValues = {
     secondary: '#e5e7eb',
     header: '#24292e',
     backgroundText: '#ffffff',
+    backgroundContainer: '#ffffff',
     error: '#be123c',
   },
   darkColors: {
@@ -17,6 +18,7 @@ const themeValues = {
     secondary: '#e5e7eb',
     header: '#24292e',
     backgroundText: '#ffffff',
+    backgroundContainer: '#ffffff',
     error: '#e11d48',
   },
   mode: 'light' | 'dark',
