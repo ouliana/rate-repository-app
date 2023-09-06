@@ -1,18 +1,21 @@
 import { useQuery } from '@apollo/client';
 import { View, FlatList, StyleSheet } from 'react-native';
 import ReviewItem from '../ReviewItem';
+import Loading from '../Loading';
 
 import { GET_CURRENT_USER } from '../../graphql/queries';
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
 const ReviewList = () => {
-  const { data, error } = useQuery(GET_CURRENT_USER, {
+  const { loading, error, data, refetch } = useQuery(GET_CURRENT_USER, {
     variables: {
       includeReviews: true,
     },
     fetchPolicy: 'cache-and-network',
   });
+
+  if (loading) return <Loading />;
 
   if (error) {
     console.log('Error');
@@ -26,7 +29,7 @@ const ReviewList = () => {
       data={reviews}
       renderItem={({ item }) => (
         <ReviewItem
-          key={item.repositoryId}
+          // key={item.repositoryId}
           review={item}
           isMyReviewsView
         />
