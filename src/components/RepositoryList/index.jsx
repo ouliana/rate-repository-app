@@ -11,17 +11,25 @@ const RepositoryList = () => {
   const order = useOrderValue();
   const searchKeyword = useSearchKeywordValue();
 
-  const { repositories, loading } = useRepositories({
+  const { repositories, fetchMore, loading } = useRepositories({
     order,
     searchKeyword,
+    first: 8,
   });
 
   if (loading) return <Loading />;
 
+  const onEndReach = () => {
+    fetchMore();
+  };
+
   return (
     <>
       <Filter />
-      <RepositoryListContainer repositories={repositories} />
+      <RepositoryListContainer
+        repositories={repositories}
+        onEndReach={onEndReach}
+      />
     </>
   );
 };

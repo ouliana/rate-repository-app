@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-native';
 import RepositoryItem from '../RepositoryItem';
 import OrderPickerBottomsheet from './OrderPickerBottomsheet';
 import OrderPicker from './OrderPicker';
-// import Filter from './Filter';
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
@@ -21,7 +20,7 @@ const Header = () => {
   );
 };
 
-const RepositoryListContainer = ({ repositories }) => {
+const RepositoryListContainer = ({ repositories, onEndReach }) => {
   const navigate = useNavigate();
   const repositoryNodes = repositories
     ? repositories.map(edge => edge.node)
@@ -43,6 +42,8 @@ const RepositoryListContainer = ({ repositories }) => {
       )}
       // other props
       style={styles.container}
+      onEndReached={onEndReach}
+      onEndReachedThreshold={0.5}
     />
   );
 };
