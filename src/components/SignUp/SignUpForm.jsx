@@ -1,41 +1,41 @@
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 
 import FormikTextInput from '../FormikTextInput';
 import { Button } from '@rneui/themed';
 
+import useGlobalStyles from '../../hooks/useGlobalStyles';
+import { i18n } from '../../utils/i18n';
+import { useLocaleValue } from '../../contexts/LocaleContext';
+
 const SignUpForm = ({ onSubmit }) => {
+  const globalStyles = useGlobalStyles();
+  // eslint-disable-next-line no-unused-vars
+  const locale = useLocaleValue();
+
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.formContainer}>
       <FormikTextInput
         name="username"
-        placeholderTextColor="#ccc"
-        placeholder="Username"
+        placeholder={i18n.t('username')}
       />
       <FormikTextInput
         name="password"
-        placeholder="Password"
-        placeholderTextColor="#ccc"
+        placeholder={i18n.t('password')}
         secureTextEntry={true}
       />
       <FormikTextInput
         name="confirmedPassword"
-        placeholder="confirm password"
-        placeholderTextColor="#ccc"
+        placeholder={i18n.t('confirmPassword')}
         secureTextEntry={true}
       />
       <Button
         onPress={onSubmit}
-        title="Sign up"
+        title={i18n.t('signup')}
+        titleStyle={globalStyles.buttonTitle}
+        containerStyle={globalStyles.button}
       />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-    paddingTop: 24,
-  },
-});
 
 export default SignUpForm;

@@ -11,6 +11,7 @@ import AppBar from './AppBar';
 
 import { OrderContextProvider } from '../contexts/OrderContext';
 import { SearchKeywordContextProvider } from '../contexts/SearchKeywordContext';
+import { LocaleContextProvider } from '../contexts/LocaleContext';
 
 import useGlobalStyles from '../hooks/useGlobalStyles';
 
@@ -18,49 +19,51 @@ const Main = () => {
   const globalStyles = useGlobalStyles();
 
   return (
-    <SearchKeywordContextProvider>
-      <OrderContextProvider>
-        <View style={globalStyles.main}>
-          <AppBar />
-          <Routes>
-            <Route
-              path="/"
-              element={<RepositoryList />}
-              exact
-            />
-            <Route
-              path="/:repositoryId"
-              element={<SingleRepository />}
-            />
-            <Route
-              path="/signup"
-              element={<SignUp />}
-            />
-            <Route
-              path="/signin"
-              element={<SignIn />}
-            />
-            <Route
-              path="/addreview"
-              element={<NewReview />}
-            />
-            <Route
-              path="/reviews"
-              element={<ReviewList />}
-            />
-            <Route
-              path="*"
-              element={
-                <Navigate
-                  to="/"
-                  replace
-                />
-              }
-            />
-          </Routes>
-        </View>
-      </OrderContextProvider>
-    </SearchKeywordContextProvider>
+    <LocaleContextProvider>
+      <SearchKeywordContextProvider>
+        <OrderContextProvider>
+          <View style={globalStyles.main}>
+            <AppBar />
+            <Routes>
+              <Route
+                path="/"
+                element={<RepositoryList />}
+                exact
+              />
+              <Route
+                path="/:repositoryId"
+                element={<SingleRepository />}
+              />
+              <Route
+                path="/signup"
+                element={<SignUp />}
+              />
+              <Route
+                path="/signin"
+                element={<SignIn />}
+              />
+              <Route
+                path="/addreview"
+                element={<NewReview />}
+              />
+              <Route
+                path="/reviews"
+                element={<ReviewList />}
+              />
+              <Route
+                path="*"
+                element={
+                  <Navigate
+                    to="/"
+                    replace
+                  />
+                }
+              />
+            </Routes>
+          </View>
+        </OrderContextProvider>
+      </SearchKeywordContextProvider>
+    </LocaleContextProvider>
   );
 };
 

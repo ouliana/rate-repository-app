@@ -1,18 +1,26 @@
 import { useState, useEffect } from 'react';
 import { View, StyleSheet, ScrollView, Pressable } from 'react-native';
-import Text from '../Text';
-import AppBarTab from './AppBarTab';
+
 import { useQuery } from '@apollo/client';
 import { GET_CURRENT_USER } from '../../graphql/queries';
 import { useSignOut } from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-native';
 
+import Text from '../Text';
+import AppBarTab from './AppBarTab';
+import SettingsBottomsheet from '../SettingsBottomsheet';
+
 import useGlobalStyles from '../../hooks/useGlobalStyles';
+import { i18n } from '../../utils/i18n';
+import { useLocaleValue } from '../../contexts/LocaleContext';
 
 const AppBar = () => {
   const globalStyles = useGlobalStyles();
   const [currentUser, setCurrentUser] = useState('');
   const navigate = useNavigate();
+
+  // eslint-disable-next-line no-unused-vars
+  const locale = useLocaleValue();
 
   const signOut = useSignOut();
   const handleSignOut = async () => {
@@ -40,24 +48,25 @@ const AppBar = () => {
 
   return (
     <View style={globalStyles.header}>
+      <SettingsBottomsheet />
       <ScrollView
         horizontal
         style={styles.scrollView}
         contentContainerStyle={styles.tabs}
       >
         <AppBarTab
-          text="Repositories"
+          text="repositories"
           to="/"
         />
 
         {currentUser ? (
           <>
             <AppBarTab
-              text="Create a review"
+              text="createReview"
               to="/addreview"
             />
             <AppBarTab
-              text="My reviews"
+              text="myReviews"
               to="/reviews"
             />
             <Pressable
@@ -65,21 +74,21 @@ const AppBar = () => {
               style={styles.tab}
             >
               <Text
-                color="textBackground"
+                color="textPrimary"
                 fontWeight="bold"
               >
-                Sign out
+                {i18n.t('signOut')}
               </Text>
             </Pressable>
           </>
         ) : (
           <>
             <AppBarTab
-              text="Sign in"
+              text="signIn"
               to="/signin"
             />
             <AppBarTab
-              text="Sign up"
+              text="signUp"
               to="/signup"
             />
           </>

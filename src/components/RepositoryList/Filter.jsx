@@ -2,13 +2,15 @@ import { useState, useContext } from 'react';
 import SearchKeywordContext from '../../contexts/SearchKeywordContext';
 import { useDebouncedCallback } from 'use-debounce';
 
-import { SearchBar } from '@rneui/themed';
+import { useTheme, SearchBar } from '@rneui/themed';
 import { Platform, StyleSheet } from 'react-native';
 
 import useGlobalStyles from '../../hooks/useGlobalStyles';
+import { i18n } from '../../utils/i18n';
 
 const Filter = () => {
   const globalStyles = useGlobalStyles();
+  const { theme } = useTheme();
 
   const [searchKeyword, dispatch] = useContext(SearchKeywordContext);
   const [value, setValue] = useState(searchKeyword);
@@ -28,13 +30,10 @@ const Filter = () => {
   const searchContainerStyle =
     Platform.OS === 'ios'
       ? {
-          ...globalStyles.top,
+          backgroundColor: theme.colors.background,
           ...styles.searchContainerIOS,
         }
-      : {
-          ...globalStyles.top,
-          ...styles.searchContainer,
-        };
+      : styles.searchContainer;
 
   return (
     <SearchBar
@@ -43,7 +42,7 @@ const Filter = () => {
       inputContainerStyle={globalStyles.search}
       onChangeText={newVal => updateSearch(newVal)}
       onClear={() => updateSearch('')}
-      placeholder="Type query here..."
+      placeholder={i18n.t('search')}
       placeholderTextColor="#888"
       clearIcon={{ type: 'ionicon', name: 'close-circle' }}
       onCancel={() => updateSearch('')}

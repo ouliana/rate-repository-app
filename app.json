@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "ios": {
+      "infoPlist": {
+        "CFBundleAllowMixedLocalizations": true
+      }
+    },
+    "locales": {
+      "en": "./languages/english.json",
+      "ru": "./languages/russian.json"
+    }
+  }
+}

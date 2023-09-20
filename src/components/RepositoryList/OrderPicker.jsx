@@ -2,7 +2,9 @@ import { useContext } from 'react';
 import OrderContext from '../../contexts/OrderContext';
 
 import { Picker } from '@react-native-picker/picker';
-import { orderValues } from '../../utils/sorting';
+import { orderPrinciples, orderValues } from '../../utils/sorting';
+
+import { i18n } from '../../utils/i18n';
 
 const OrderPicker = () => {
   const [order, dispatch] = useContext(OrderContext);
@@ -13,7 +15,7 @@ const OrderPicker = () => {
       payload: option,
     });
   };
-  let key = 0;
+
   return (
     <Picker
       selectedValue={order}
@@ -21,8 +23,8 @@ const OrderPicker = () => {
     >
       {orderValues.map(value => (
         <Picker.Item
-          key={key++}
-          label={value}
+          key={orderPrinciples[value].label}
+          label={i18n.t(orderPrinciples[value].label)}
           value={value}
         />
       ))}

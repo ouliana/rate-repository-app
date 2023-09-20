@@ -4,17 +4,24 @@ import Text from '../Text';
 
 import * as Linking from 'expo-linking';
 
+// import useGlobalStyles from '../../hooks/useGlobalStyles';
+import { i18n } from '../../utils/i18n';
+
+import { useTheme, Button } from '@rneui/themed';
 import useGlobalStyles from '../../hooks/useGlobalStyles';
-import { Button } from '@rneui/themed';
 
 const RepositoryItem = ({ item, isSingle }) => {
   const globalStyles = useGlobalStyles();
+  const { theme } = useTheme();
 
   if (!item) return null;
 
   return (
     <View
-      style={styles.container}
+      style={{
+        backgroundColor: theme.colors.backgroundCard,
+        ...styles.container,
+      }}
       testID="repositoryItem"
     >
       <View style={styles.infoContainer}>
@@ -25,9 +32,16 @@ const RepositoryItem = ({ item, isSingle }) => {
           }}
         />
         <View style={styles.details}>
-          <Text fontWeight="bold">{item.fullName}</Text>
+          <Text
+            color="textPrimary"
+            fontWeight="bold"
+          >
+            {item.fullName}
+          </Text>
           <Text color="textSecondary">{item.description}</Text>
-          <View style={globalStyles.base}>
+          <View
+            style={{ backgroundColor: theme.colors.primary, ...styles.chip }}
+          >
             <Text color="textBackground">{item.language}</Text>
           </View>
         </View>
@@ -53,10 +67,15 @@ const RepositoryItem = ({ item, isSingle }) => {
       </View>
       {isSingle && (
         <Button
-          title="Open in GitHub"
+          title={i18n.t('openInGitHub')}
+          titleStyle={{
+            fontSize: theme.fontSizes.body,
+            color: theme.colors.white,
+          }}
           onPress={() => {
             Linking.openURL(item.url);
           }}
+          containerStyle={globalStyles.button}
         />
       )}
     </View>
@@ -66,7 +85,6 @@ const RepositoryItem = ({ item, isSingle }) => {
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    backgroundColor: '#ffffff',
     display: 'flex',
     flexDirection: 'column',
     gap: 16,
@@ -96,6 +114,11 @@ const styles = StyleSheet.create({
   avatar: {
     width: 50,
     height: 50,
+    borderRadius: 5,
+  },
+  chip: {
+    paddingHorizontal: 8,
+    paddingVertical: 6,
     borderRadius: 5,
   },
 });

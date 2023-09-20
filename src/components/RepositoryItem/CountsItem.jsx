@@ -16,7 +16,12 @@ const CountsItem = ({ value, label }) => {
   }
   return (
     <View style={styles.item}>
-      <Text fontWeight="bold">{value}</Text>
+      <Text
+        color="textPrimary"
+        fontWeight="bold"
+      >
+        {value}
+      </Text>
       <Text color="textSecondary">{label}</Text>
     </View>
   );

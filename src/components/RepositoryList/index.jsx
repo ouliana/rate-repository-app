@@ -1,5 +1,6 @@
 import { useOrderValue } from '../../contexts/OrderContext';
 import { useSearchKeywordValue } from '../../contexts/SearchKeywordContext';
+import { useLocaleValue } from '../../contexts/LocaleContext';
 
 import useRepositories from '../../hooks/useRepositories';
 import RepositoryListContainer from './RepositoryListContainer';
@@ -9,6 +10,8 @@ import Filter from './Filter';
 
 const RepositoryList = () => {
   const order = useOrderValue();
+  // eslint-disable-next-line no-unused-vars
+  const locale = useLocaleValue();
   const searchKeyword = useSearchKeywordValue();
 
   const { repositories, fetchMore, loading } = useRepositories({

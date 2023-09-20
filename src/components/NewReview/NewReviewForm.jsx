@@ -3,32 +3,39 @@ import FormikTextInput from '../FormikTextInput';
 import { Button } from '@rneui/themed';
 
 import useGlobalStyles from '../../hooks/useGlobalStyles';
+import { useLocaleValue } from '../../contexts/LocaleContext';
+import { i18n } from '../../utils/i18n';
 
 const NewReviewForm = ({ onSubmit }) => {
   const globalStyles = useGlobalStyles();
+
+  // eslint-disable-next-line no-unused-vars
+  const locale = useLocaleValue();
 
   return (
     <View style={globalStyles.formContainer}>
       <FormikTextInput
         name="ownerName"
-        placeholder="Repository owner name"
+        placeholder={i18n.t('repositoryOwner')}
       />
       <FormikTextInput
         name="repositoryName"
-        placeholder="Repository name"
+        placeholder={i18n.t('repositoryName')}
       />
       <FormikTextInput
         name="rating"
-        placeholder="Rating between 0 and 100"
+        placeholder={i18n.t('rating')}
       />
       <FormikTextInput
         name="text"
-        placeholder="Review"
+        placeholder={i18n.t('review')}
         multiline={true}
       />
       <Button
-        title="Create a review"
+        title={i18n.t('createReviewButton')}
         onPress={onSubmit}
+        titleStyle={globalStyles.buttonTitle}
+        containerStyle={globalStyles.button}
       />
     </View>
   );

@@ -1,17 +1,18 @@
 import { Alert } from 'react-native';
+import { i18n } from '../../utils/i18n';
 
 const ConfirmDelete = ({ repository, setIsConfirmed }) =>
   Alert.alert(
-    'Delete Review',
-    `Are you sure you want to delete review on repository ${repository}?`,
+    i18n.t('alertDeleteReviewTitle'),
+    `${i18n.t('alertDeleteReviewQuestion')} ${repository}?`,
     [
       {
-        text: 'Cancel',
+        text: i18n.t('cancel'),
         onPress: () => setIsConfirmed(false),
         style: 'cancel',
       },
       {
-        text: 'Delete',
+        text: i18n.t('delete'),
         onPress: () => setIsConfirmed(true),
       },
     ]

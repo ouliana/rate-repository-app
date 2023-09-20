@@ -1,8 +1,14 @@
-import { View, FlatList, StyleSheet } from 'react-native';
+import { View, FlatList } from 'react-native';
 import RepositoryInfo from './RepositoryInfo';
 import ReviewItem from '../ReviewItem';
 
-const ItemSeparator = () => <View style={styles.separator} />;
+import useGlobalStyles from '../../hooks/useGlobalStyles';
+
+const ItemSeparator = () => {
+  const globalStyles = useGlobalStyles();
+
+  return <View style={globalStyles.separator} />;
+};
 
 const Header = ({ repository }) => {
   return (
@@ -26,12 +32,5 @@ const SingleRepositoryContainer = ({ repository, reviews, onEndReach }) => {
     />
   );
 };
-
-const styles = StyleSheet.create({
-  separator: {
-    height: 10,
-    backgroundColor: '#e1e4e8',
-  },
-});
 
 export default SingleRepositoryContainer;

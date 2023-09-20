@@ -5,11 +5,21 @@ import { format } from 'date-fns';
 const ReviewDetails = ({ header, createdAt, text }) => {
   return (
     <View style={styles.details}>
-      <Text fontWeight="bold">{header}</Text>
+      <Text
+        color="textPrimary"
+        fontWeight="bold"
+      >
+        {header}
+      </Text>
       <Text color="textSecondary">
         {format(new Date(createdAt), 'dd.MM.yyyy')}
       </Text>
-      <Text style={styles.text}>{text}</Text>
+      <Text
+        color="textPrimary"
+        style={styles.text}
+      >
+        {text}
+      </Text>
     </View>
   );
 };

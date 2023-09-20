@@ -2,6 +2,8 @@ import { View, StyleSheet } from 'react-native';
 import { Button } from '@rneui/themed';
 import Text from './Text';
 
+import { i18n } from '../utils/i18n';
+
 const Loading = () => {
   return (
     <View style={styles.container}>
@@ -9,7 +11,7 @@ const Loading = () => {
         type="clear"
         loading
       />
-      <Text color="textSecondary">LOADING</Text>
+      <Text color="textSecondary">{i18n.t('loading')}</Text>
     </View>
   );
 };

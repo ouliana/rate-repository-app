@@ -8,9 +8,10 @@ const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
   const textStyle = [
     { fontSize: theme.fontSizes.body },
     { fontFamily: theme.fonts.main },
+    color === 'textPrimary' && { color: theme.colors.textPrimary },
     color === 'textSecondary' && { color: theme.colors.textSecondary },
     color === 'primary' && { color: theme.colors.primary },
-    color === 'textBackground' && { color: theme.colors.backgroundText },
+    color === 'textBackground' && { color: theme.colors.white },
     color === 'error' && { color: theme.colors.error },
     fontSize === 'subheading' && {
       fontSize: theme.fontSizes.subheading,
