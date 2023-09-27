@@ -1,11 +1,16 @@
-import { FlatList, View, StyleSheet, Pressable, Platform } from 'react-native';
+import { FlatList, View, Pressable, Platform } from 'react-native';
 import { useNavigate } from 'react-router-native';
 
 import RepositoryItem from '../RepositoryItem';
 import OrderPickerBottomsheet from './OrderPickerBottomsheet';
 import OrderPicker from './OrderPicker';
+import useGlobalStyles from '../../hooks/useGlobalStyles';
 
-const ItemSeparator = () => <View style={styles.separator} />;
+const ItemSeparator = () => {
+  const globalStyles = useGlobalStyles();
+
+  return <View style={globalStyles.separator} />;
+};
 
 const SelectOrderComponent = () => {
   if (Platform.OS === 'ios') return <OrderPickerBottomsheet />;
@@ -13,11 +18,7 @@ const SelectOrderComponent = () => {
 };
 
 const Header = () => {
-  return (
-    <>
-      <SelectOrderComponent />
-    </>
-  );
+  return <SelectOrderComponent />;
 };
 
 const RepositoryListContainer = ({ repositories, onEndReach }) => {
@@ -41,16 +42,10 @@ const RepositoryListContainer = ({ repositories, onEndReach }) => {
         </Pressable>
       )}
       // other props
-      style={styles.container}
       onEndReached={onEndReach}
       onEndReachedThreshold={0.5}
     />
   );
 };
-const styles = StyleSheet.create({
-  separator: {
-    height: 10,
-  },
-});
 
 export default RepositoryListContainer;

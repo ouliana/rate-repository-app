@@ -2,6 +2,8 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 
 import SignUpForm from './SignUpForm';
+import { i18n } from '../../utils/i18n';
+import { useLocaleValue } from '../../contexts/LocaleContext';
 
 const initialValues = {
   username: '',
@@ -12,21 +14,23 @@ const initialValues = {
 const validationSchema = yup.object().shape({
   username: yup
     .string()
-    .min(5, 'Username should consist of 5 to 30 characters')
-    .max(30, 'Username should consist of 5 to 30 characters')
-    .required('username is required'),
+    .min(5, i18n.t('invalidNewUsername'))
+    .max(30, i18n.t('invalidNewUsername'))
+    .required(i18n.t('usernameRequired')),
   password: yup
     .string()
-    .min(5, 'Password should consist of 5 to 30 characters')
-    .max(30, 'Password should consist of 5 to 30 characters')
-    .required('Password is required'),
+    .min(5, i18n.t('invalidNewPassword'))
+    .max(30, i18n.t('invalidNewPassword'))
+    .required(i18n.t('passwordRequired')),
   confirmedPassword: yup
     .string()
-    .oneOf([yup.ref('password'), null], 'Passwords do not match')
-    .required('Password confirmation is required'),
+    .oneOf([yup.ref('password'), null], i18n.t('passwordsDoNotMatch'))
+    .required(i18n.t('passwordConfirmationRequired')),
 });
 
 const SignUpContainer = ({ onSubmit }) => {
+  // eslint-disable-next-line no-unused-vars
+  const locale = useLocaleValue();
   return (
     <Formik
       initialValues={initialValues}

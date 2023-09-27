@@ -2,6 +2,8 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 
 import SignInForm from './SignInForm';
+import { i18n } from '../../utils/i18n';
+import { useLocaleValue } from '../../contexts/LocaleContext';
 
 const initialValues = {
   username: '',
@@ -11,15 +13,18 @@ const initialValues = {
 const validationSchema = yup.object().shape({
   username: yup
     .string()
-    .min(3, 'Username should consist of more than 3 characters')
-    .required('Username is required'),
+    .min(3, i18n.t('invalidUsername'))
+    .required(i18n.t('usernameRequired')),
   password: yup
     .string()
-    .min(8, 'Password should contain 8 or more symbols')
-    .required('Password is required'),
+    .min(8, i18n.t('invalidPassword'))
+    .required(i18n.t('passwordRequired')),
 });
 
 const SignInContainer = ({ onSubmit }) => {
+  // eslint-disable-next-line no-unused-vars
+  const locale = useLocaleValue();
+
   return (
     <Formik
       initialValues={initialValues}

@@ -13,7 +13,6 @@ const useReviews = ({ repositoryId, ...other }) => {
   }
 
   const handleFetchMore = () => {
-    console.log('handleFetchMore');
     const canFetchMore =
       !loading && data?.repository.reviews.pageInfo.hasNextPage;
     if (!canFetchMore) {

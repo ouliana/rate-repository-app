@@ -5,7 +5,7 @@ export const getGlobalStyles = props =>
   StyleSheet.create({
     header: {
       paddingTop: Constants.statusBarHeight,
-      backgroundColor: props.colors.backgroundContainer,
+      backgroundColor: props.colors.backgroundHeader,
       borderBottomWidth: 1,
       borderBottomColor: props.colors.divider,
     },
@@ -24,10 +24,10 @@ export const getGlobalStyles = props =>
       borderColor: props.colors.primary,
     },
     search: {
-      backgroundColor: props.colors.backgroundContainer,
+      backgroundColor: props.colors.backgroundCard,
     },
     container: {
-      backgroundColor: props.colors.backgroundContainer,
+      backgroundColor: props.colors.backgroundCard,
       color: props.colors.textPrimary,
     },
     text: {
@@ -36,21 +36,34 @@ export const getGlobalStyles = props =>
       fontSize: props.fontSizes.body,
     },
     primaryButton: {
+      borderRadius: 25,
+      paddingVertical: 12,
       backgroundColor: props.colors.primary,
-      borderRadius: 5,
+      borderWidth: 1,
+      borderColor: props.colors.primary,
     },
-    dangerButton: {
-      backgroundColor: props.colors.error,
-      borderRadius: 5,
+    dangerButtonTitle: {
+      color: props.colors.error,
+      fontSize: props.fontSizes.body,
+    },
+    buttonPrimaryOutline: {
+      borderRadius: 25,
+      paddingVertical: 12,
+      borderWidth: 1,
+      borderColor: props.colors.primary,
+    },
+    buttonDangerOutline: {
+      borderRadius: 25,
+      paddingVertical: 12,
+      borderWidth: 1,
+      borderColor: props.colors.error,
+      color: props.colors.error,
     },
     formContainer: {
-      padding: 16,
-      margin: 16,
-      paddingTop: 24,
+      paddingHorizontal: 8,
+      paddingVertical: 24,
+      height: '100%',
       backgroundColor: props.colors.backgroundContainer,
-      borderWidth: 1,
-      borderColor: props.colors.divider,
-      borderRadius: 12,
     },
     menuContainer: {
       display: 'flex',
@@ -63,16 +76,9 @@ export const getGlobalStyles = props =>
       backgroundColor: props.colors.backgroundContainer,
     },
     colors: {
-      //   primary: props.colors.primary,
-      //   secondary: props.colors.secondary,
-      //   background: props.colors.background,
       backgroundContainer: props.colors.backgroundContainer,
-      //   backgroundMenu: props.colors.backgroundMenu,
       divider: props.colors.divider,
     },
-    // fontSizes: {
-    //   body: props.fontSizes.body,
-    // },
     menuItem: {
       padding: 16,
       display: 'flex',
@@ -85,12 +91,7 @@ export const getGlobalStyles = props =>
       height: 10,
       backgroundColor: props.colors.background,
     },
-    button: {
-      borderRadius: 5,
-      color: props.colors.textBackground,
-    },
     buttonTitle: {
       fontSize: props.fontSizes.body,
-      color: props.colors.textPrimary,
     },
   });

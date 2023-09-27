@@ -12,11 +12,11 @@ import AuthStorageContext from './src/contexts/AuthStorageContext';
 import { ThemeProvider, createTheme } from '@rneui/themed';
 import themeValues from './src/theme';
 
-const theme = createTheme(themeValues);
-
 const storage = authStorage();
 
 const apolloClient = createAplolloClient(storage);
+
+const theme = createTheme(themeValues);
 
 const App = () => {
   return (

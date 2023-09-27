@@ -33,7 +33,7 @@ const LanguageItem = ({ lan, value }) => {
         name="checkmark-outline"
         type="ionicon"
         color={
-          locale === value
+          locale.slice(0, 2) === value.slice(0, 2)
             ? theme.colors.textPrimary
             : theme.colors.backgroundContainer
         }

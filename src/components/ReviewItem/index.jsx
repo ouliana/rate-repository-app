@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { useTheme, Button } from '@rneui/themed';
+import { Button } from '@rneui/themed';
 import Rating from './Rating';
 import ReviewDetails from './ReviewDetails';
 import useDeleteReview from '../../hooks/useDeleteReview';
@@ -14,7 +14,6 @@ import { i18n } from '../../utils/i18n';
 
 const ReviewItem = ({ review, isMyReviewsView = false }) => {
   const globalStyles = useGlobalStyles();
-  const { theme } = useTheme();
 
   // eslint-disable-next-line no-unused-vars
   const locale = useLocaleValue();
@@ -63,19 +62,17 @@ const ReviewItem = ({ review, isMyReviewsView = false }) => {
           <Button
             buttonStyle={globalStyles.primaryButton}
             containerStyle={styles.button}
-            titleStyle={{
-              fontSize: theme.fontSizes.body,
-            }}
+            titleStyle={globalStyles.buttonTitle}
             onPress={() => setRepositoryID(review.repositoryId)}
           >
             {i18n.t('viewRepositoryButton')}
           </Button>
           <Button
-            buttonStyle={globalStyles.dangerButton}
+            type="outline"
+            color="error"
+            buttonStyle={globalStyles.buttonDangerOutline}
             containerStyle={styles.button}
-            titleStyle={{
-              fontSize: theme.fontSizes.body,
-            }}
+            titleStyle={globalStyles.dangerButtonTitle}
             onPress={() =>
               ConfirmDelete({ repository: header, setIsConfirmed })
             }

@@ -4,15 +4,18 @@ import Text from '../Text';
 
 import * as Linking from 'expo-linking';
 
-// import useGlobalStyles from '../../hooks/useGlobalStyles';
 import { i18n } from '../../utils/i18n';
 
-import { useTheme, Button } from '@rneui/themed';
+import { useTheme, Button, Chip } from '@rneui/themed';
 import useGlobalStyles from '../../hooks/useGlobalStyles';
+import { useLocaleValue } from '../../contexts/LocaleContext';
 
 const RepositoryItem = ({ item, isSingle }) => {
   const globalStyles = useGlobalStyles();
   const { theme } = useTheme();
+
+  // eslint-disable-next-line no-unused-vars
+  const locale = useLocaleValue();
 
   if (!item) return null;
 
@@ -39,11 +42,7 @@ const RepositoryItem = ({ item, isSingle }) => {
             {item.fullName}
           </Text>
           <Text color="textSecondary">{item.description}</Text>
-          <View
-            style={{ backgroundColor: theme.colors.primary, ...styles.chip }}
-          >
-            <Text color="textBackground">{item.language}</Text>
-          </View>
+          <Chip title={item.language} />
         </View>
       </View>
 
@@ -68,14 +67,14 @@ const RepositoryItem = ({ item, isSingle }) => {
       {isSingle && (
         <Button
           title={i18n.t('openInGitHub')}
-          titleStyle={{
-            fontSize: theme.fontSizes.body,
-            color: theme.colors.white,
+          buttonStyle={globalStyles.primaryButton}
+          containerStyle={{
+            marginVertical: 16,
           }}
+          titleStyle={globalStyles.buttonTitle}
           onPress={() => {
             Linking.openURL(item.url);
           }}
-          containerStyle={globalStyles.button}
         />
       )}
     </View>
@@ -114,11 +113,6 @@ const styles = StyleSheet.create({
   avatar: {
     width: 50,
     height: 50,
-    borderRadius: 5,
-  },
-  chip: {
-    paddingHorizontal: 8,
-    paddingVertical: 6,
     borderRadius: 5,
   },
 });

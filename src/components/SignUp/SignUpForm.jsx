@@ -6,11 +6,15 @@ import { Button } from '@rneui/themed';
 import useGlobalStyles from '../../hooks/useGlobalStyles';
 import { i18n } from '../../utils/i18n';
 import { useLocaleValue } from '../../contexts/LocaleContext';
+import { useNavigate } from 'react-router-native';
 
 const SignUpForm = ({ onSubmit }) => {
   const globalStyles = useGlobalStyles();
   // eslint-disable-next-line no-unused-vars
   const locale = useLocaleValue();
+  const navigate = useNavigate();
+
+  const onCancel = () => navigate('/');
 
   return (
     <View style={globalStyles.formContainer}>
@@ -31,8 +35,18 @@ const SignUpForm = ({ onSubmit }) => {
       <Button
         onPress={onSubmit}
         title={i18n.t('signup')}
+        buttonStyle={globalStyles.primaryButton}
+        containerStyle={{
+          marginVertical: 16,
+        }}
         titleStyle={globalStyles.buttonTitle}
-        containerStyle={globalStyles.button}
+      />
+      <Button
+        onPress={onCancel}
+        title={i18n.t('cancel')}
+        type="outline"
+        buttonStyle={globalStyles.buttonPrimaryOutline}
+        titleStyle={globalStyles.buttonTitle}
       />
     </View>
   );

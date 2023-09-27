@@ -3,6 +3,7 @@ import { useTheme, useThemeMode, Icon } from '@rneui/themed';
 import Text from '../Text';
 import { i18n } from '../../utils/i18n';
 import useGlobalStyles from '../../hooks/useGlobalStyles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ThemeItem = ({ value }) => {
   const { theme } = useTheme();
@@ -12,9 +13,20 @@ const ThemeItem = ({ value }) => {
   const iconName = value === 'light' ? 'sunny-outline' : 'moon-outline';
   const themeName = value === 'light' ? 'themeLight' : 'themeDark';
 
+  const onPress = () => {
+    (async () => {
+      try {
+        await AsyncStorage.setItem('mode', value);
+      } catch (e) {
+        throw new Error(i18n.t('otherErrorMessage'));
+      }
+    })();
+    setMode(value);
+  };
+
   return (
     <Pressable
-      onPress={() => setMode(value)}
+      onPress={() => onPress()}
       style={globalStyles.menuItem}
     >
       <View style={styles.group}>

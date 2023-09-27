@@ -2,6 +2,8 @@ import { Formik } from 'formik';
 import NewReviewForm from './NewReviewForm';
 
 import * as Yup from 'yup';
+import { i18n } from '../../utils/i18n';
+import { useLocaleValue } from '../../contexts/LocaleContext';
 
 const initialValues = {
   ownerName: '',
@@ -11,17 +13,20 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object().shape({
-  ownerName: Yup.string().required(`Repository owner's username is required`),
-  repositoryName: Yup.string().required(`Repository's name is required`),
+  ownerName: Yup.string().required(i18n.t('ownerNameRequired')),
+  repositoryName: Yup.string().required(i18n.t('repositoryNameRequired')),
   rating: Yup.number()
-    .required(`Rating is required`)
+    .required(i18n.t('ratingRequired'))
     .integer()
-    .min(1, 'Rating should be a number between 0 and 100')
-    .max(100, 'Rating should be a number between 0 and 100'),
+    .min(1, i18n.t('invalidRatingValue'))
+    .max(100, i18n.t('invalidRatingValue')),
   text: Yup.string(),
 });
 
 const NewReviewContainer = ({ onSubmit }) => {
+  // eslint-disable-next-line no-unused-vars
+  const locale = useLocaleValue();
+
   return (
     <Formik
       initialValues={initialValues}

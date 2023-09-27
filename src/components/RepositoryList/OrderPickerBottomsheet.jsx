@@ -53,7 +53,6 @@ const OrderPickerBottomsheet = () => {
           </ListItem.Content>
         </ListItem>
         <ListItem containerStyle={{ background: theme.colors.background }}>
-          {/* <ListItem containerStyle={globalStyles.container}> */}
           <ListItem.Content>
             <View style={styles.picker}>
               <Picker

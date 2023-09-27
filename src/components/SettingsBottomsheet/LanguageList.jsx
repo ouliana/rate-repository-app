@@ -11,7 +11,7 @@ const LanguageList = () => {
     <View style={globalStyles.menuContainer}>
       <LanguageItem
         lan={'English'}
-        value={'en-EN'}
+        value={'en'}
       />
       <Divider
         color={globalStyles.colors.divider}
@@ -21,7 +21,7 @@ const LanguageList = () => {
       />
       <LanguageItem
         lan={'Русский'}
-        value={'ru-RU'}
+        value={'ru'}
       />
     </View>
   );
