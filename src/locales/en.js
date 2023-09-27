@@ -54,8 +54,10 @@ const en = {
   passwordsDoNotMatch: 'Passwords do not match',
   passwordConfirmationRequired: 'Password confirmation is required',
   loading: 'Please wait...',
+  //errors
   repositoryDoesNotExist: 'Repository does not exist',
   alreadyReviewed: 'User has already reviewed this repository',
   otherErrorMessage: 'An error occured',
+  invalidUsernameOrPassword: 'Invalid username or password',
 };
 export default en;

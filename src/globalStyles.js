@@ -73,7 +73,7 @@ export const getGlobalStyles = props =>
       borderColor: props.colors.divider,
       borderRadius: 12,
       width: '100%',
-      backgroundColor: props.colors.backgroundContainer,
+      backgroundColor: props.colors.backgroundCard,
     },
     colors: {
       backgroundContainer: props.colors.backgroundContainer,

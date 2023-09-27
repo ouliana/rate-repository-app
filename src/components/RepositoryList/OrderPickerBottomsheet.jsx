@@ -45,11 +45,11 @@ const OrderPickerBottomsheet = () => {
       />
       <BottomSheet isVisible={isVisible}>
         <ListItem
-          containerStyle={{ backgroundColor: theme.colors.primary }}
+          containerStyle={{ backgroundColor: theme.colors.header }}
           onPress={handleOnPress}
         >
           <ListItem.Content style={{ alignItems: 'flex-end' }}>
-            <Text color="textBackground">{i18n.t('done')}</Text>
+            <Text color="textPrimary">{i18n.t('done')}</Text>
           </ListItem.Content>
         </ListItem>
         <ListItem containerStyle={{ background: theme.colors.background }}>

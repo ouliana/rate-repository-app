@@ -2,18 +2,11 @@ import { useState, useEffect } from 'react';
 import useAddReview from '../../hooks/useAddReview';
 import { useNavigate } from 'react-router-native';
 
-import { View, StyleSheet } from 'react-native';
 import NewReviewContainer from './NewReviewContainer';
-import Text from '../Text';
+import Notify from '../Notify';
 
 import { i18n } from '../../utils/i18n';
 import { useLocaleValue } from '../../contexts/LocaleContext';
-
-const styles = StyleSheet.create({
-  toast: {
-    padding: 16,
-  },
-});
 
 const NewReview = () => {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -63,17 +56,6 @@ const NewReview = () => {
       <Notify errorMessage={errorMessage} />
       <NewReviewContainer onSubmit={onSubmit} />
     </>
-  );
-};
-
-const Notify = ({ errorMessage }) => {
-  if (!errorMessage) {
-    return null;
-  }
-  return (
-    <View style={styles.toast}>
-      <Text color="error">{errorMessage}</Text>
-    </View>
   );
 };
 

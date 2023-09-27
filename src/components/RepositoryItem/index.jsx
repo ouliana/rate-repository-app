@@ -68,9 +68,6 @@ const RepositoryItem = ({ item, isSingle }) => {
         <Button
           title={i18n.t('openInGitHub')}
           buttonStyle={globalStyles.primaryButton}
-          containerStyle={{
-            marginVertical: 16,
-          }}
           titleStyle={globalStyles.buttonTitle}
           onPress={() => {
             Linking.openURL(item.url);

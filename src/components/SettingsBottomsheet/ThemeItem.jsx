@@ -42,7 +42,7 @@ const ThemeItem = ({ value }) => {
         color={
           value === mode
             ? theme.colors.textPrimary
-            : theme.colors.backgroundContainer
+            : theme.colors.backgroundCard
         }
       />
     </Pressable>

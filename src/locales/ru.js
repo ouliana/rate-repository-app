@@ -53,8 +53,10 @@ const ru = {
   passwordsDoNotMatch: 'Пароли не совпадают',
   passwordConfirmationRequired: 'Требуется подтвердить пароль',
   loading: 'Пожалуйста, подождите...',
+  // errors
   repositoryDoesNotExist: 'Репозиторий не существует',
   alreadyReviewed: 'Отзыв пользователя на этот репозиторий уже существует',
   otherErrorMessage: 'Произошла ошибка',
+  invalidUsernameOrPassword: 'Неверное имя пользователя или пароль',
 };
 export default ru;

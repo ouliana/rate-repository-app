@@ -40,13 +40,6 @@ const themeValues = {
     normal: '400',
     bold: '700',
   },
-  menuContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    borderRadius: 12,
-    width: '100%',
-  },
 };
 
 export default themeValues;

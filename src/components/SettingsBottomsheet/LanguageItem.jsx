@@ -35,7 +35,7 @@ const LanguageItem = ({ lan, value }) => {
         color={
           locale.slice(0, 2) === value.slice(0, 2)
             ? theme.colors.textPrimary
-            : theme.colors.backgroundContainer
+            : theme.colors.backgroundCard
         }
       />
     </Pressable>
