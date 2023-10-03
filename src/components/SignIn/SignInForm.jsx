@@ -21,11 +21,13 @@ const SignInForm = ({ onSubmit }) => {
       <View style={globalStyles.formContainer}>
         <FormikTextInput
           name="username"
-          placeholder={i18n.t('username')}
+          label={i18n.t('username')}
+          placeholder={i18n.t('usernamePlaceholder')}
         />
         <FormikTextInput
           name="password"
-          placeholder={i18n.t('password')}
+          label={i18n.t('password')}
+          placeholder={i18n.t('passwordPlaceholder')}
           secureTextEntry={true}
         />
         <Button

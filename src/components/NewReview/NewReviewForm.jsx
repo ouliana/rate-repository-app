@@ -21,19 +21,23 @@ const NewReviewForm = ({ onSubmit }) => {
     <View style={globalStyles.formContainer}>
       <FormikTextInput
         name="ownerName"
-        placeholder={i18n.t('repositoryOwner')}
+        label={i18n.t('repositoryOwner')}
+        placeholder={i18n.t('repositoryOwnerPlaceholder')}
       />
       <FormikTextInput
         name="repositoryName"
-        placeholder={i18n.t('repositoryName')}
+        label={i18n.t('repositoryName')}
+        placeholder={i18n.t('repositoryNamePlaceholder')}
       />
       <FormikTextInput
         name="rating"
-        placeholder={i18n.t('rating')}
+        label={i18n.t('rating')}
+        placeholder={i18n.t('ratingPlaceholder')}
       />
       <FormikTextInput
         name="text"
-        placeholder={i18n.t('review')}
+        label={i18n.t('review')}
+        placeholder={i18n.t('reviewPlaceholder')}
         multiline={true}
       />
       <Button
@@ -42,6 +46,7 @@ const NewReviewForm = ({ onSubmit }) => {
         buttonStyle={globalStyles.primaryButton}
         containerStyle={{
           marginVertical: 16,
+          marginHorizontal: 8,
         }}
         titleStyle={globalStyles.buttonTitle}
       />
@@ -51,6 +56,9 @@ const NewReviewForm = ({ onSubmit }) => {
         type="outline"
         buttonStyle={globalStyles.buttonPrimaryOutline}
         titleStyle={globalStyles.buttonTitle}
+        containerStyle={{
+          marginHorizontal: 8,
+        }}
       />
     </View>
   );

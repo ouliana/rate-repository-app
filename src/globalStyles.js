@@ -35,9 +35,10 @@ export const getGlobalStyles = props =>
       fontFamily: props.fonts.main,
       fontSize: props.fontSizes.body,
     },
+    // buttons
     primaryButton: {
       borderRadius: 25,
-      paddingVertical: 12,
+      paddingVertical: 10,
       backgroundColor: props.colors.primary,
       borderWidth: 1,
       borderColor: props.colors.primary,
@@ -48,17 +49,18 @@ export const getGlobalStyles = props =>
     },
     buttonPrimaryOutline: {
       borderRadius: 25,
-      paddingVertical: 12,
+      paddingVertical: 10,
       borderWidth: 1,
       borderColor: props.colors.primary,
     },
     buttonDangerOutline: {
       borderRadius: 25,
-      paddingVertical: 12,
+      paddingVertical: 10,
       borderWidth: 1,
       borderColor: props.colors.error,
       color: props.colors.error,
     },
+    // form
     formContainer: {
       paddingHorizontal: 8,
       paddingVertical: 24,

@@ -19,9 +19,13 @@ const ru = {
   themeDark: 'Тёмная',
   //new review form
   repositoryOwner: 'Имя владельца репозитория',
+  repositoryOwnerPlaceholder: 'Введите имя владельца',
   repositoryName: 'Название репозитория',
-  rating: 'Рейтинг между 0 и 100',
-  review: 'Текст отзыва',
+  repositoryNamePlaceholder: 'Введите название репозитория',
+  rating: 'Рейтинг',
+  ratingPlaceholder: 'Введите значение между 0 и 100',
+  review: 'Отзыв',
+  reviewPlaceholder: 'Введите текст',
   createReviewButton: 'Создать отзыв',
   //review form validation errors
   ownerNameRequired: 'Требуется указать имя владельца репозитория',
@@ -38,11 +42,14 @@ const ru = {
   openInGitHub: 'Открыть на GitHub',
   //sign up, in, out
   username: 'Имя пользователя',
+  usernamePlaceholder: 'Введите имя пользователя',
   password: 'Пароль',
+  passwordPlaceholder: 'Введите пароль',
   signup: 'Зарегистрироваться',
   signin: 'Войти',
   signout: 'Выйти',
-  confirmPassword: 'Повторите пароль',
+  confirmPassword: 'Подтверждение пароля',
+  confirmPasswordPlaceholder: 'Повторите пароль',
   //validation errors for sign up, in, out
   invalidUsername: 'Имя пользователя должно содержать не менее 3 символов',
   invalidNewUsername: 'Имя пользователя должно содержать от 5 до 30 символов',

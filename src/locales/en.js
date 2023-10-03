@@ -19,9 +19,13 @@ const en = {
   themeDark: 'Dark',
   //new review form
   repositoryOwner: 'Repository owner name',
+  repositoryOwnerPlaceholder: 'Enter owner name',
   repositoryName: 'Repository name',
-  rating: 'Rating between 0 and 100',
+  repositoryNamePlaceholder: 'Enter repository name',
+  rating: 'Rating',
+  ratingPlaceholder: 'Enter value between 0 and 100',
   review: 'Review',
+  reviewPlaceholder: 'Enter review text',
   createReviewButton: 'Create a review',
   //review form validation errors
   ownerNameRequired: `Repository owner's username is required`,
@@ -39,11 +43,14 @@ const en = {
   openInGitHub: 'Open in GitHub',
   //sign up, in, out
   username: 'Username',
+  usernamePlaceholder: 'Enter username',
   password: 'Password',
+  passwordPlaceholder: 'Enter password',
   signup: 'Sign up',
   signin: 'Sign in',
   signout: 'Sign out',
   confirmPassword: 'Confirm password',
+  confirmPasswordPlaceholder: 'Reenter  password',
   //validation errors for sign up, in, out
   invalidUsername: 'Username should consist of more than 3 characters',
   invalidNewUsername: 'Username should consist of 5 to 30 characters',

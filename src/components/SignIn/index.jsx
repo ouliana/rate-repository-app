@@ -13,7 +13,7 @@ import { i18n } from '../../utils/i18n';
 import { useLocaleValue } from '../../contexts/LocaleContext';
 
 const SignIn = () => {
-  const [signIn, { error }] = useSignIn();
+  const [signIn] = useSignIn();
   const navigate = useNavigate();
 
   // eslint-disable-next-line no-unused-vars
@@ -31,6 +31,7 @@ const SignIn = () => {
         setTimeout(() => setErrorMessage(''), 5000);
       } else {
         setErrorMessage(i18n.t('otherErrorMessage'));
+        setTimeout(() => setErrorMessage(''), 5000);
       }
     }
   };

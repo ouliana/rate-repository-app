@@ -7,7 +7,10 @@ import Text from '../Text';
 const AppBarTab = ({ text, to }) => {
   return (
     <View style={styles.tab}>
-      <Link to={to}>
+      <Link
+        underlayColor="transparent"
+        to={to}
+      >
         <Text
           color="textPrimary"
           fontWeight="bold"
