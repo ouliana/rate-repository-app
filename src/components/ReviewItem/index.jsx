@@ -13,10 +13,8 @@ import { useLocaleValue } from '../../contexts/LocaleContext';
 import { i18n } from '../../utils/i18n';
 
 const ReviewItem = ({ review, isMyReviewsView = false }) => {
+  useLocaleValue();
   const globalStyles = useGlobalStyles();
-
-  // eslint-disable-next-line no-unused-vars
-  const locale = useLocaleValue();
 
   const [repositoryID, setRepositoryID] = useState('');
 

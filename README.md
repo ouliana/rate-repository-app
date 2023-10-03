@@ -1,10 +1,15 @@
 
 #rate-repository-app
 
-A simple React Native application for rating GitHub repositories. 
+Небольшое приложение на  React Native для рейтинга репозиториев на GitHub.
+Приложение разработано на платформе Expo. В качестве серверной части приложения используется  https://github.com/fullstack-hy2020/rate-repository-api, предоставляющее Apollo GraphQL API для взаимодействия с сервером.   
 
-The application has features such as, 
+![Alt text](assets/images/ru/main_unauthorized_light_ru_android.png "a title")
+
+Приложение обладает следующим функционалом: 
+## Сортировка и фильтр репозиториев
 - sorting and filtering reviewed repositories, 
+- сортировка и фильтр репозиториев
 - registering a user, 
 - logging in and 
 - creating a review for a repository. 

@@ -29,8 +29,8 @@ const validationSchema = yup.object().shape({
 });
 
 const SignUpContainer = ({ onSubmit }) => {
-  // eslint-disable-next-line no-unused-vars
-  const locale = useLocaleValue();
+  useLocaleValue();
+
   return (
     <Formik
       initialValues={initialValues}

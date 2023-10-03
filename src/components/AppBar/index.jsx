@@ -13,12 +13,10 @@ import useGlobalStyles from '../../hooks/useGlobalStyles';
 import { useLocaleValue } from '../../contexts/LocaleContext';
 
 const AppBar = () => {
+  useLocaleValue();
   const globalStyles = useGlobalStyles();
   const [currentUser, setCurrentUser] = useState('');
   const navigate = useNavigate();
-
-  // eslint-disable-next-line no-unused-vars
-  const locale = useLocaleValue();
 
   const signOut = useSignOut();
   const handleSignOut = async () => {

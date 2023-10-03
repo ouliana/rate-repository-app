@@ -13,11 +13,10 @@ import { i18n } from '../../utils/i18n';
 import { useLocaleValue } from '../../contexts/LocaleContext';
 
 const SignIn = () => {
+  useLocaleValue();
+
   const [signIn] = useSignIn();
   const navigate = useNavigate();
-
-  // eslint-disable-next-line no-unused-vars
-  const locale = useLocaleValue();
 
   const [errorMessage, setErrorMessage] = useState('');
 

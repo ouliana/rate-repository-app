@@ -9,9 +9,8 @@ import { useLocaleValue } from '../../contexts/LocaleContext';
 import { useNavigate } from 'react-router-native';
 
 const SignInForm = ({ onSubmit }) => {
+  useLocaleValue();
   const globalStyles = useGlobalStyles();
-  // eslint-disable-next-line no-unused-vars
-  const locale = useLocaleValue();
   const navigate = useNavigate();
 
   const onCancel = () => navigate('/');

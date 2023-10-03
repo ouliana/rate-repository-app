@@ -11,11 +11,9 @@ import useGlobalStyles from '../../hooks/useGlobalStyles';
 import { useLocaleValue } from '../../contexts/LocaleContext';
 
 const RepositoryItem = ({ item, isSingle }) => {
+  useLocaleValue();
   const globalStyles = useGlobalStyles();
   const { theme } = useTheme();
-
-  // eslint-disable-next-line no-unused-vars
-  const locale = useLocaleValue();
 
   if (!item) return null;
 

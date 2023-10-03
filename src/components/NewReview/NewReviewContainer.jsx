@@ -24,8 +24,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const NewReviewContainer = ({ onSubmit }) => {
-  // eslint-disable-next-line no-unused-vars
-  const locale = useLocaleValue();
+  useLocaleValue();
 
   return (
     <Formik

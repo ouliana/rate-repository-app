@@ -10,8 +10,8 @@ import Filter from './Filter';
 
 const RepositoryList = () => {
   const order = useOrderValue();
-  // eslint-disable-next-line no-unused-vars
-  const locale = useLocaleValue();
+  useLocaleValue();
+
   const searchKeyword = useSearchKeywordValue();
 
   const { repositories, fetchMore, loading } = useRepositories({

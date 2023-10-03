@@ -8,10 +8,8 @@ import { i18n } from '../../utils/i18n';
 import { useNavigate } from 'react-router-native';
 
 const NewReviewForm = ({ onSubmit }) => {
+  useLocaleValue();
   const globalStyles = useGlobalStyles();
-
-  // eslint-disable-next-line no-unused-vars
-  const locale = useLocaleValue();
 
   const navigate = useNavigate();
 

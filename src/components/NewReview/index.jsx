@@ -14,7 +14,6 @@ const NewReview = () => {
   const [addReview, { error, data }] = useAddReview();
   const navigate = useNavigate();
 
-  // eslint-disable-next-line no-unused-vars
   const locale = useLocaleValue();
 
   const onSubmit = async ({ ownerName, repositoryName, rating, text }) => {
