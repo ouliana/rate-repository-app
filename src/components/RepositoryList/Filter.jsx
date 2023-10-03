@@ -43,10 +43,11 @@ const Filter = () => {
       onChangeText={newVal => updateSearch(newVal)}
       onClear={() => updateSearch('')}
       placeholder={i18n.t('search')}
-      placeholderTextColor="#888"
+      placeholderTextColor={theme.colors.textPlaceholder}
       clearIcon={{ type: 'ionicon', name: 'close-circle' }}
       onCancel={() => updateSearch('')}
       value={value}
+      searchIcon={{ color: theme.colors.textSecondary }}
     />
   );
 };

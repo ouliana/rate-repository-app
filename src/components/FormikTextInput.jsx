@@ -37,7 +37,7 @@ const FormikTextInput = ({ name, ...props }) => {
           }
           onPress={() => setIsSecureTextVisible(!isSecureTextVisible)}
           size={20}
-          // containerStyle={{ margin: 0, padding: 0 }}
+          containerStyle={{ marginLeft: 24 }}
         />
       }
       secureTextEntry={!isSecureTextVisible}

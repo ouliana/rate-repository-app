@@ -4,6 +4,7 @@ const themeValues = {
   lightColors: {
     textPrimary: '#374151',
     textSecondary: '#5e6977',
+    textPlaceholder: '#9CA3AF',
     header: '#F9FAFB',
     background: '#E5E7EB',
     backgroundContainer: 'white',
@@ -15,6 +16,7 @@ const themeValues = {
   darkColors: {
     textPrimary: '#F3F4F6',
     textSecondary: '#9CA3AF',
+    textPlaceholder: '#6B7280',
     header: '#111827',
     background: '#1F2937',
     backgroundContainer: '#1F2937',

@@ -1,8 +1,7 @@
-import { useState } from 'react';
 import { View } from 'react-native';
 
 import FormikTextInput from '../FormikTextInput';
-import { Button, Icon } from '@rneui/themed';
+import { Button } from '@rneui/themed';
 
 import useGlobalStyles from '../../hooks/useGlobalStyles';
 import { i18n } from '../../utils/i18n';
@@ -28,20 +27,11 @@ const SignUpForm = ({ onSubmit }) => {
         name="password"
         label={i18n.t('password')}
         placeholder={i18n.t('passwordPlaceholder')}
-        // rightIcon={
-        //   <Icon
-        //     type="ionicon"
-        //     name={"eye-off-outline"}
-        //     // size={16}
-        //   />
-        // }
-        // secureTextEntry={true}
       />
       <FormikTextInput
         name="confirmedPassword"
         label={i18n.t('confirmPassword')}
         placeholder={i18n.t('confirmPasswordPlaceholder')}
-        secureTextEntry={true}
       />
       <Button
         onPress={onSubmit}

@@ -1,17 +1,15 @@
 import { useState, useEffect } from 'react';
-import { View, StyleSheet, ScrollView, Pressable } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 
 import { useQuery } from '@apollo/client';
 import { GET_CURRENT_USER } from '../../graphql/queries';
 import { useSignOut } from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-native';
 
-import Text from '../Text';
 import AppBarTab from './AppBarTab';
-import SettingsBottomsheet from '../SettingsBottomsheet';
+import TopButtonsContainer from './TopButtonsContainer';
 
 import useGlobalStyles from '../../hooks/useGlobalStyles';
-import { i18n } from '../../utils/i18n';
 import { useLocaleValue } from '../../contexts/LocaleContext';
 
 const AppBar = () => {
@@ -48,7 +46,10 @@ const AppBar = () => {
 
   return (
     <View style={globalStyles.header}>
-      <SettingsBottomsheet />
+      <TopButtonsContainer
+        currentUser={currentUser}
+        handleSignOut={handleSignOut}
+      />
       <ScrollView
         horizontal
         style={styles.scrollView}
@@ -69,17 +70,6 @@ const AppBar = () => {
               text="myReviews"
               to="/reviews"
             />
-            <Pressable
-              onPress={handleSignOut}
-              style={styles.tab}
-            >
-              <Text
-                color="textPrimary"
-                fontWeight="bold"
-              >
-                {i18n.t('signOut')}
-              </Text>
-            </Pressable>
           </>
         ) : (
           <>

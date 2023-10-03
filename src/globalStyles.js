@@ -38,7 +38,7 @@ export const getGlobalStyles = props =>
     // buttons
     primaryButton: {
       borderRadius: 25,
-      paddingVertical: 10,
+      paddingVertical: 8,
       backgroundColor: props.colors.primary,
       borderWidth: 1,
       borderColor: props.colors.primary,
@@ -49,13 +49,13 @@ export const getGlobalStyles = props =>
     },
     buttonPrimaryOutline: {
       borderRadius: 25,
-      paddingVertical: 10,
+      paddingVertical: 8,
       borderWidth: 1,
       borderColor: props.colors.primary,
     },
     buttonDangerOutline: {
       borderRadius: 25,
-      paddingVertical: 10,
+      paddingVertical: 8,
       borderWidth: 1,
       borderColor: props.colors.error,
       color: props.colors.error,

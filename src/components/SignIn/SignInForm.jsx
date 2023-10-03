@@ -28,7 +28,6 @@ const SignInForm = ({ onSubmit }) => {
           name="password"
           label={i18n.t('password')}
           placeholder={i18n.t('passwordPlaceholder')}
-          secureTextEntry={true}
         />
         <Button
           onPress={onSubmit}

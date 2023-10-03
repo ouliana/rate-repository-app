@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
 import { useTheme, Button, Icon, BottomSheet, ListItem } from '@rneui/themed';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
+// import { View, StyleSheet } from 'react-native';
 
 import Text from '../Text';
 import LanguageList from './LanguageList';
@@ -9,7 +10,7 @@ import ThemeList from './ThemeList';
 
 import { i18n } from '../../utils/i18n';
 
-const Settings = () => {
+const SettingsBottomsheet = () => {
   const { theme } = useTheme();
 
   const [visible, setVisible] = useState(false);
@@ -19,7 +20,7 @@ const Settings = () => {
   };
 
   return (
-    <View style={styles.topButtons}>
+    <View>
       <Button
         type="clear"
         onPress={toggleBottomsheet}
@@ -62,12 +63,4 @@ const Settings = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  topButtons: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-  },
-});
-
-export default Settings;
+export default SettingsBottomsheet;
