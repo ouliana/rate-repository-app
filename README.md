@@ -7,7 +7,6 @@
 ![Alt text](assets/images/ru/main_unauthorized_light_ru_android.png "a title")
 
 
-![Alt text](assets/images/ru/my_reviews_ru.png "a title")
 
 Приложение обладает следующим функционалом: 
 ## Сортировка и фильтр репозиториев
