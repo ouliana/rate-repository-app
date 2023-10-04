@@ -40,7 +40,13 @@ const RepositoryItem = ({ item, isSingle }) => {
             {item.fullName}
           </Text>
           <Text color="textSecondary">{item.description}</Text>
-          <Chip title={item.language} />
+          <Chip
+            title={item.language}
+            buttonStyle={{ backgroundColor: theme.colors.chip }}
+            titleStyle={{
+              color: theme.colors.textPrimary,
+            }}
+          />
         </View>
       </View>
 

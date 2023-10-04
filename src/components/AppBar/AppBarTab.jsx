@@ -1,31 +1,22 @@
-import { View, StyleSheet } from 'react-native';
-import { Link } from 'react-router-native';
+import { Chip } from '@rneui/themed';
 import { i18n } from '../../utils/i18n';
-
-import Text from '../Text';
+import { useNavigate, useLocation } from 'react-router-native';
 
 const AppBarTab = ({ text, to }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const isCurrentView = to === location.pathname;
+
+  const onPress = () => navigate(to);
+
   return (
-    <View style={styles.tab}>
-      <Link
-        underlayColor="transparent"
-        to={to}
-      >
-        <Text
-          color="textPrimary"
-          fontWeight="bold"
-        >
-          {i18n.t(text)}
-        </Text>
-      </Link>
-    </View>
+    <Chip
+      title={i18n.t(text)}
+      type={isCurrentView ? 'solid' : 'outline'}
+      onPress={onPress}
+    />
   );
 };
-
-const styles = StyleSheet.create({
-  tab: {
-    paddingRight: 16,
-  },
-});
 
 export default AppBarTab;

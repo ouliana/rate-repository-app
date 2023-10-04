@@ -91,13 +91,10 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    gap: 10,
   },
   scrollView: {
-    marginHorizontal: 16,
-    marginVertical: 16,
-  },
-  tab: {
-    paddingRight: 16,
+    paddingVertical: 16,
   },
 });
 

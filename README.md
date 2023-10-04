@@ -1,26 +1,25 @@
 
 #rate-repository-app
 
-Небольшое приложение на  React Native для рейтинга репозиториев на GitHub.
-Приложение разработано на платформе Expo. В качестве серверной части приложения используется  https://github.com/fullstack-hy2020/rate-repository-api, предоставляющее Apollo GraphQL API для взаимодействия с сервером.   
+Небольшое приложение на  React Native для рейтинга репозиториев GitHub.
+Приложение разработано с использованием инструментов Expo. В качестве серверной части приложения используется  https://github.com/fullstack-hy2020/rate-repository-api, предоставляющее Apollo GraphQL API для взаимодействия с сервером.   
 
-![Alt text](assets/images/ru/main_unauthorized_light_ru_android.png "a title")
-
-
-
-Приложение обладает следующим функционалом: 
-## Сортировка и фильтр репозиториев
-- sorting and filtering reviewed repositories, 
-- сортировка и фильтр репозиториев
-- registering a user, 
-- logging in and 
-- creating a review for a repository. 
+Приложение имеет следующий функционал:
+- сортировка и фильтр репозиториев,
+- просмотр отдельного репозитория и отзывов о нём,
+- регистрация нового пользователя,
+- авторизация зарегистрированного пользователя,
+- создание отзыва о репозитории.
   
-Two settings are available to the user:
-- user interface language (English, Russian)
-- appearance (light or dark theme)
+Пользователь имеет возможность выбрать следующие настройки:
+- язык интерфейса приложения (русский, английский),
+- тема оформления.
+  
+Настройки, выбранные пользователем сохраняются в памяти устройства.
 
-The application is developed with Expo and uses GraphQL for interactions with server.
+### Функционал, доступный неавторизованным пользователям
 
-The application is a part of Full Stack open (https://fullstackopen.com/en/). The back end for the application is provided by https://github.com/fullstack-hy2020/rate-repository-api
+![Страница неавторизованного пользователя](assets/images/ru/repositories_unauthorized_light_ru_android.png ) ![Страница неавторизованного пользователя, тёмная тема](assets/images/ru/repositories_unauthorized_dark_ru_android.png) ![Страница отдельного репозитория](assets/images/ru/single_light_ru_android.png) ![Страница авторизации](assets/images/ru/sign_in_light_ru.png) ![Настройки, светлая тема](assets/images/ru/settings_light_ru.png)  ![Настройки, тёмная тема](assets/images/ru/settings_dark.png) 
 
+### Дополнительный функционал, доступный авторизованным пользователям
+![Страница авторизованного пользователя](assets/images/ru/main_authorized_light_ru_android.png) ![Создание отзыва](assets/images/ru/review_light_ru.png)

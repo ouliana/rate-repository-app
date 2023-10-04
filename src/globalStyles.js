@@ -8,6 +8,7 @@ export const getGlobalStyles = props =>
       backgroundColor: props.colors.backgroundHeader,
       borderBottomWidth: 1,
       borderBottomColor: props.colors.divider,
+      paddingHorizontal: 16,
     },
     main: {
       flexGrow: 1,

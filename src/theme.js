@@ -12,6 +12,7 @@ const themeValues = {
     backgroundHeader: '#F1F5F9',
     error: '#E11D48',
     divider: '#D1D5DB',
+    chip: '#E5E7EB',
   },
   darkColors: {
     textPrimary: '#F3F4F6',
@@ -24,6 +25,7 @@ const themeValues = {
     backgroundHeader: '#0F172A',
     error: '#F87171',
     divider: '#86939e',
+    chip: '#6B7280',
   },
   mode: 'light' | 'dark',
   fontSizes: {
