@@ -22,4 +22,4 @@
 ![Страница неавторизованного пользователя](assets/images/ru/repositories_unauthorized_light_ru_android.png ) ![Страница неавторизованного пользователя, тёмная тема](assets/images/ru/repositories_unauthorized_dark_ru_android.png)  ![Поиск](assets/images/ru/search_ru.png) ![Сортировка](assets/images/ru/sort_rating_ru.png) ![Страница отдельного репозитория](assets/images/ru/single_light_ru_android.png) ![Настройки, светлая тема](assets/images/ru/settings_light_ru.png)  ![Настройки, тёмная тема](assets/images/ru/settings_dark.png)  ![Страница авторизации](assets/images/ru/sign_in_light_ru.png)
 
 ### Дополнительный функционал, доступный авторизованным пользователям
-![Страница авторизованного пользователя](assets/images/ru/main_authorized_light_ru_android.png) ![Создание отзыва](assets/images/ru/review_light_ru.png) ![Мои отзывы](assets/images/ru/my_reviews_ru.png)
+![Страница авторизованного пользователя](assets/images/ru/main_authorized_light_ru_android.png) ![Создание отзыва](assets/images/ru/review_light_ru.png) ![Мои отзывы](assets/images/ru/my_reviews_ru.png  )
