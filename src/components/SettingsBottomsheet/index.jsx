@@ -37,7 +37,7 @@ const SettingsBottomsheet = () => {
           onPress={toggleBottomsheet}
         >
           <ListItem.Content style={{ alignItems: 'flex-end' }}>
-            <Text color="textPrimary">{i18n.t('done')}</Text>
+            <Text color="primary">{i18n.t('done')}</Text>
           </ListItem.Content>
         </ListItem>
         <ListItem
