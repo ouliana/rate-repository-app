@@ -1,5 +1,5 @@
 
-#rate-repository-app
+# rate-repository-app
 
 Небольшое приложение на  React Native для рейтинга репозиториев GitHub.
 Приложение разработано с использованием инструментов Expo. В качестве серверной части приложения используется  https://github.com/fullstack-hy2020/rate-repository-api, предоставляющее Apollo GraphQL API для взаимодействия с сервером.   
